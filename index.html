@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meu Bolso — Manual do Usuário</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0D1117; color: #E6EDF3; line-height: 1.7; }
+  
+  header { background: linear-gradient(135deg, #1565C0, #1976D2); padding: 48px 24px 40px; text-align: center; }
+  header .logo { font-size: 48px; margin-bottom: 12px; }
+  header h1 { font-size: 32px; font-weight: 700; color: white; margin-bottom: 8px; }
+  header p { font-size: 16px; color: rgba(255,255,255,0.8); }
+  header .beta { display: inline-block; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); border-radius: 20px; padding: 4px 14px; font-size: 12px; color: white; margin-top: 12px; }
+
+  nav { background: #161B22; border-bottom: 1px solid #30363D; padding: 0 24px; overflow-x: auto; white-space: nowrap; }
+  nav a { display: inline-block; padding: 14px 16px; color: #8B949E; text-decoration: none; font-size: 14px; border-bottom: 2px solid transparent; transition: all 0.2s; }
+  nav a:hover { color: #1976D2; border-bottom-color: #1976D2; }
+
+  .container { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
+
+  section { margin-bottom: 48px; }
+  h2 { font-size: 24px; font-weight: 700; color: #E6EDF3; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #30363D; display: flex; align-items: center; gap: 10px; }
+  h2 .icon { font-size: 22px; }
+  h3 { font-size: 17px; font-weight: 600; color: #1976D2; margin: 24px 0 10px; }
+  p { color: #8B949E; margin-bottom: 12px; font-size: 15px; }
+
+  .card { background: #161B22; border: 1px solid #30363D; border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; }
+  .card-blue { border-left: 4px solid #1976D2; }
+  .card-green { border-left: 4px solid #43A047; }
+  .card-orange { border-left: 4px solid #FB8C00; }
+  .card-red { border-left: 4px solid #EF5350; }
+
+  .step { display: flex; gap: 16px; margin-bottom: 20px; align-items: flex-start; }
+  .step-num { background: #1976D2; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+  .step-content h4 { font-size: 15px; font-weight: 600; color: #E6EDF3; margin-bottom: 4px; }
+  .step-content p { margin: 0; font-size: 14px; }
+
+  .tip { background: #1C2128; border: 1px solid #1976D2; border-radius: 8px; padding: 14px 18px; margin: 16px 0; display: flex; gap: 12px; align-items: flex-start; }
+  .tip-icon { font-size: 18px; flex-shrink: 0; }
+  .tip p { margin: 0; font-size: 14px; color: #8B949E; }
+
+  .warning { background: #1C2128; border: 1px solid #FB8C00; border-radius: 8px; padding: 14px 18px; margin: 16px 0; display: flex; gap: 12px; align-items: flex-start; }
+  .warning p { margin: 0; font-size: 14px; color: #8B949E; }
+
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; margin-left: 8px; }
+  .badge-blue { background: #1565C020; color: #1976D2; border: 1px solid #1976D220; }
+  .badge-green { background: #43A04720; color: #43A047; border: 1px solid #43A04720; }
+
+  .swipe-demo { display: flex; gap: 8px; margin: 16px 0; }
+  .swipe-card { flex: 1; border-radius: 10px; padding: 14px; text-align: center; }
+  .swipe-left { background: #EF535020; border: 1px solid #EF535040; }
+  .swipe-right { background: #1976D220; border: 1px solid #1976D240; }
+  .swipe-card .icon { font-size: 24px; margin-bottom: 6px; }
+  .swipe-card p { font-size: 13px; margin: 0; }
+
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  th { background: #1C2128; color: #E6EDF3; padding: 10px 14px; text-align: left; border-bottom: 1px solid #30363D; }
+  td { padding: 10px 14px; border-bottom: 1px solid #21262D; color: #8B949E; }
+  tr:hover td { background: #1C2128; }
+
+  footer { background: #161B22; border-top: 1px solid #30363D; padding: 32px 24px; text-align: center; }
+  footer p { color: #8B949E; font-size: 14px; margin-bottom: 8px; }
+  footer a { color: #1976D2; text-decoration: none; }
+
+  @media (max-width: 600px) {
+    header h1 { font-size: 24px; }
+    h2 { font-size: 20px; }
+    .swipe-demo { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">💰</div>
+  <h1>Meu Bolso</h1>
+  <p>Manual do Usuário — Controle Financeiro Inteligente</p>
+  <span class="beta">β Versão Beta</span>
+</header>
+
+<nav>
+  <a href="#inicio">Início</a>
+  <a href="#tela-principal">Tela Principal</a>
+  <a href="#transacoes">Transações</a>
+  <a href="#periodos">Períodos</a>
+  <a href="#resumo">Resumo</a>
+  <a href="#historico">Histórico</a>
+  <a href="#fixos">Gastos Fixos</a>
+  <a href="#configuracoes">Configurações</a>
+  <a href="#permissoes">Permissões</a>
+  <a href="#faq">FAQ</a>
+</nav>
+
+<div class="container">
+
+  <!-- INÍCIO -->
+  <section id="inicio">
+    <h2><span class="icon">🚀</span> Primeiros passos</h2>
+    <p>O <strong>Meu Bolso</strong> detecta automaticamente seus gastos lendo as notificações dos aplicativos bancários — sem precisar digitar nada. Basta deixar o app rodando em segundo plano.</p>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Conceda acesso às notificações</h4>
+        <p>Na primeira abertura, o app pedirá permissão para ler notificações. Toque em "Abrir configurações", encontre o <strong>Meu Bolso</strong> na lista e ative o acesso.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Configure o orçamento mensal</h4>
+        <p>Vá em <strong>Configurações ⚙️</strong> e defina quanto deseja gastar por mês. Isso ativa a barra de progresso e os alertas de orçamento.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Use normalmente seu banco</h4>
+        <p>Quando receber uma notificação de compra, débito ou Pix, o Meu Bolso registra automaticamente o valor e categoriza o gasto.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h4>Acompanhe seus gastos</h4>
+        <p>Abra o app e veja o resumo do período, os gastos por categoria e o quanto ainda resta do seu orçamento.</p>
+      </div>
+    </div>
+
+    <div class="tip">
+      <span class="tip-icon">💡</span>
+      <p><strong>Dica:</strong> No Xiaomi/MIUI, vá em Configurações → Apps → Meu Bolso → Bateria → <strong>Sem restrições</strong> e ative a <strong>Inicialização automática</strong> para garantir que o app funcione em segundo plano.</p>
+    </div>
+  </section>
+
+  <!-- TELA PRINCIPAL -->
+  <section id="tela-principal">
+    <h2><span class="icon">🏠</span> Tela Principal</h2>
+    <p>A tela principal é o coração do app. Ela exibe um resumo completo do período atual.</p>
+
+    <h3>Card azul — Resumo do período</h3>
+    <div class="card card-blue">
+      <p>O card azul mostra:</p>
+      <ul style="margin: 8px 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
+        <li><strong>Gastos de [Mês Ano]</strong> — nome do período atual</li>
+        <li><strong>Restam R$ X</strong> — quanto resta do orçamento</li>
+        <li><strong>Valor total</strong> em destaque</li>
+        <li><strong>Fixas / Pontuais / Entradas</strong> — mini-cards com os subtotais</li>
+        <li><strong>N transações</strong> — total de lançamentos</li>
+        <li><strong>Ver resumo</strong> — abre a tela de gráficos</li>
+      </ul>
+    </div>
+
+    <h3>Botões de navegação</h3>
+    <div class="card">
+      <p><strong>Histórico de períodos</strong> — veja todos os meses anteriores com gráfico de evolução.</p>
+      <p><strong>Fechar período</strong> — encerra o mês atual e inicia um novo período.</p>
+    </div>
+
+    <h3>Adição manual</h3>
+    <div class="card">
+      <p>Três botões para registrar manualmente:</p>
+      <ul style="margin: 8px 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
+        <li><strong>↓ Gasto</strong> — registra uma saída com valor, local e data</li>
+        <li><strong>↑ Entrada</strong> — registra uma receita com descrição, valor e data</li>
+        <li><strong>Fixos</strong> — gerencia os gastos fixos recorrentes</li>
+      </ul>
+    </div>
+
+    <h3>Abas de filtro</h3>
+    <div class="card">
+      <p>Filtre a lista de transações por: <strong>Todas · Fixas · Pontuais · Entradas</strong></p>
+    </div>
+
+    <h3>Ocultar valores</h3>
+    <div class="card">
+      <p>Toque no ícone de <strong>olho 👁</strong> no card azul para ocultar todos os valores — útil em lugares públicos.</p>
+    </div>
+  </section>
+
+  <!-- TRANSAÇÕES -->
+  <section id="transacoes">
+    <h2><span class="icon">💳</span> Transações</h2>
+
+    <h3>Detecção automática</h3>
+    <p>Quando você recebe uma notificação bancária de compra, débito ou Pix, o app analisa o conteúdo usando inteligência artificial (Google Gemini) ou, se não houver conexão, por análise local. O gasto é registrado automaticamente com valor, estabelecimento e categoria.</p>
+
+    <div class="tip">
+      <span class="tip-icon">🤖</span>
+      <p>Para usar a análise por IA, configure sua chave da API Gemini em <strong>Configurações → API Key Gemini</strong>. Obtenha gratuitamente em <strong>aistudio.google.com</strong>.</p>
+    </div>
+
+    <h3>Adicionar manualmente</h3>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Toque em "↓ Gasto"</h4>
+        <p>Na seção "Adição manual" da tela principal.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Preencha os campos</h4>
+        <p>Informe o <strong>valor</strong>, o <strong>local/estabelecimento</strong> e a <strong>data</strong> (padrão: hoje).</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Toque em "Salvar"</h4>
+        <p>O gasto aparece na lista imediatamente.</p>
+      </div>
+    </div>
+
+    <h3>Adicionar entrada (receita)</h3>
+    <p>Toque em <strong>"↑ Entrada"</strong>, informe a descrição (ex: Salário, Freela), o valor e a data. Entradas aparecem em verde com o sinal "+" na lista.</p>
+
+    <h3>Editar uma transação <span class="badge badge-blue">Swipe →</span></h3>
+    <div class="swipe-demo">
+      <div class="swipe-card swipe-right">
+        <div class="icon">✏️</div>
+        <p><strong style="color:#1976D2">Deslize para a direita</strong><br>Abre o editor de transação</p>
+      </div>
+      <div class="swipe-card swipe-left">
+        <div class="icon">🗑️</div>
+        <p><strong style="color:#EF5350">Deslize para a esquerda</strong><br>Remove a transação</p>
+      </div>
+    </div>
+    <p>Ao deslizar para a <strong>direita</strong>, um dialog abre com os campos de descrição e valor preenchidos para edição.</p>
+    <p>Ao deslizar para a <strong>esquerda</strong>, uma confirmação é solicitada antes de remover permanentemente.</p>
+
+    <h3>Categorias disponíveis</h3>
+    <table>
+      <tr><th>Categoria</th><th>Exemplos</th></tr>
+      <tr><td>🍔 Alimentação</td><td>Restaurantes, lanchonetes, delivery</td></tr>
+      <tr><td>🛒 Supermercado</td><td>Mercados, hortifruti</td></tr>
+      <tr><td>🚗 Transporte</td><td>Combustível, Uber, ônibus</td></tr>
+      <tr><td>🏥 Saúde</td><td>Farmácias, consultas, exames</td></tr>
+      <tr><td>🎬 Entretenimento</td><td>Streaming, cinema, jogos</td></tr>
+      <tr><td>👕 Vestuário</td><td>Roupas, calçados, acessórios</td></tr>
+      <tr><td>📚 Educação</td><td>Cursos, livros, mensalidades</td></tr>
+      <tr><td>🏠 Habitação</td><td>Aluguel, condomínio, IPTU</td></tr>
+      <tr><td>📱 Telecom</td><td>Internet, celular, TV</td></tr>
+      <tr><td>💸 Pix</td><td>Transferências via Pix</td></tr>
+      <tr><td>💚 Recebido</td><td>Entradas, receitas</td></tr>
+      <tr><td>📦 Outros</td><td>Demais gastos</td></tr>
+    </table>
+  </section>
+
+  <!-- PERÍODOS -->
+  <section id="periodos">
+    <h2><span class="icon">📅</span> Períodos</h2>
+    <p>O app organiza seus gastos em <strong>períodos mensais</strong>. Cada período tem um nome (ex: Maio 2026), data de início e um orçamento.</p>
+
+    <h3>Fechar um período</h3>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Toque em "Fechar período"</h4>
+        <p>No header da tela principal.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Defina o novo orçamento</h4>
+        <p>Informe o orçamento para o próximo mês.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Escolha o destino do saldo restante</h4>
+        <p><strong>Somar ao próximo período</strong> — o saldo restante vira saldo inicial do próximo mês.<br><strong>Guardar/Investir</strong> — o saldo é registrado como poupança e o próximo mês começa zerado.</p>
+      </div>
+    </div>
+
+    <div class="warning">
+      <span style="font-size:18px">⚠️</span>
+      <p>Ao fechar um período, os <strong>gastos fixos recorrentes</strong> são aplicados automaticamente no novo período.</p>
+    </div>
+  </section>
+
+  <!-- RESUMO -->
+  <section id="resumo">
+    <h2><span class="icon">📊</span> Tela de Resumo</h2>
+    <p>Acesse tocando em <strong>"Ver resumo"</strong> dentro do card azul na tela principal.</p>
+
+    <h3>Métricas exibidas</h3>
+    <div class="card card-blue">
+      <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2.2;">
+        <li><strong>Maior gasto</strong> — valor e categoria do maior gasto do período</li>
+        <li><strong>Média por dia</strong> — quanto você gasta em média por dia</li>
+        <li><strong>Total de transações</strong> — número de lançamentos no período</li>
+        <li><strong>Categoria top</strong> — onde você mais gastou e qual % do total</li>
+      </ul>
+    </div>
+
+    <h3>Gráfico de pizza — Gastos por categoria</h3>
+    <p>Mostra visualmente como seus gastos estão distribuídos entre as categorias. Toque em uma fatia para ver o valor exato.</p>
+
+    <h3>Gráfico de barras — Top categorias</h3>
+    <p>As principais categorias ordenadas por valor gasto, facilitando identificar onde está o maior impacto no orçamento.</p>
+  </section>
+
+  <!-- HISTÓRICO -->
+  <section id="historico">
+    <h2><span class="icon">📈</span> Histórico de Períodos</h2>
+    <p>Acesse tocando em <strong>"Histórico de períodos"</strong> no header da tela principal.</p>
+
+    <h3>O que você encontra</h3>
+    <div class="card">
+      <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
+        <li>Lista de todos os períodos fechados</li>
+        <li>Total gasto e % do orçamento em cada período</li>
+        <li>Saldo restante de cada mês</li>
+        <li>Gráfico de linha com a evolução dos gastos ao longo do tempo</li>
+        <li>Linha tracejada do orçamento para comparação</li>
+        <li>Linha de tendência para projeção futura</li>
+      </ul>
+    </div>
+
+    <h3>Excluir um período</h3>
+    <p>Toque no ícone de <strong>lixeira 🗑</strong> ao lado do período desejado e confirme a exclusão. Esta ação é <strong>irreversível</strong>.</p>
+
+    <div class="warning">
+      <span style="font-size:18px">⚠️</span>
+      <p>Ao excluir um período, todos os gastos registrados nele são removidos permanentemente.</p>
+    </div>
+  </section>
+
+  <!-- GASTOS FIXOS -->
+  <section id="fixos">
+    <h2><span class="icon">🔄</span> Gastos Fixos</h2>
+    <p>Gastos que se repetem todo mês — como aluguel, internet ou academia. Acesse tocando em <strong>"Fixos"</strong> na tela principal.</p>
+
+    <h3>Adicionar um gasto fixo</h3>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Toque no botão "+"</h4>
+        <p>Na tela de Gastos Fixos.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Preencha nome, valor e categoria</h4>
+        <p>Ex: Nome = "Aluguel", Valor = 1200,00, Categoria = Habitação.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Ative "Recorrente" se desejar</h4>
+        <p>Com o toggle ativado, o gasto é aplicado automaticamente a cada novo período.</p>
+      </div>
+    </div>
+
+    <div class="tip">
+      <span class="tip-icon">💡</span>
+      <p>Gastos fixos recorrentes aparecem na aba <strong>"Fixas"</strong> da tela principal e são contabilizados separadamente no card azul.</p>
+    </div>
+  </section>
+
+  <!-- CONFIGURAÇÕES -->
+  <section id="configuracoes">
+    <h2><span class="icon">⚙️</span> Configurações</h2>
+    <p>Acesse tocando no ícone de <strong>engrenagem ⚙️</strong> no canto superior direito da tela principal.</p>
+
+    <h3>Entrada segura (Biometria)</h3>
+    <div class="card">
+      <p>Quando ativado, o app solicita sua digital ou PIN ao abrir. <strong>Desativado por padrão.</strong></p>
+    </div>
+
+    <h3>Alerta de orçamento</h3>
+    <div class="card card-orange">
+      <p>Ative para receber uma notificação quando seus gastos atingirem o percentual configurado do orçamento mensal. O slider permite ajustar de <strong>50% a 95%</strong> (padrão: 80%).</p>
+    </div>
+
+    <h3>Orçamento mensal</h3>
+    <div class="card">
+      <p>Define o valor de referência para o mês. Aparece na barra de progresso e é usado para calcular o saldo restante.</p>
+    </div>
+
+    <h3>API Key Gemini</h3>
+    <div class="card card-blue">
+      <p>Cole aqui sua chave da API do Google Gemini para habilitar a categorização inteligente por IA. Obtenha gratuitamente em <strong>aistudio.google.com</strong>. Sem a chave, o app usa análise local por palavras-chave.</p>
+    </div>
+
+    <h3>Política de privacidade</h3>
+    <div class="card card-green">
+      <p>Seus dados financeiros ficam armazenados <strong>apenas no seu dispositivo</strong>. O app não coleta, transmite nem vende nenhuma informação pessoal.</p>
+    </div>
+  </section>
+
+  <!-- PERMISSÕES -->
+  <section id="permissoes">
+    <h2><span class="icon">🔐</span> Permissões necessárias</h2>
+
+    <table>
+      <tr><th>Permissão</th><th>Para que serve</th><th>Obrigatória?</th></tr>
+      <tr><td>Acesso a notificações</td><td>Ler notificações bancárias para detectar gastos</td><td>✅ Sim</td></tr>
+      <tr><td>Notificações do app</td><td>Enviar alertas de orçamento (Android 13+)</td><td>Recomendada</td></tr>
+      <tr><td>Internet</td><td>Comunicação com a API Gemini para análise por IA</td><td>Opcional</td></tr>
+      <tr><td>Iniciar com o sistema</td><td>Reativar o monitoramento após reinicialização</td><td>Recomendada</td></tr>
+    </table>
+
+    <h3>Configurações especiais para MIUI (Xiaomi/Poco/Redmi)</h3>
+    <div class="card card-orange">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Bateria sem restrições</h4>
+          <p>Configurações → Apps → Meu Bolso → Bateria → <strong>Sem restrições</strong></p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>Inicialização automática</h4>
+          <p>Configurações → Apps → Meu Bolso → <strong>Inicialização automática → Ativar</strong></p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Acesso a notificações</h4>
+          <p>Configurações → Notificações → Acesso especial → <strong>Meu Bolso → Ativar</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <h2><span class="icon">❓</span> Perguntas Frequentes</h2>
+
+    <div class="card" style="margin-bottom:12px">
+      <h3 style="margin-top:0">O app não está detectando meus gastos. O que fazer?</h3>
+      <p>Verifique se o acesso a notificações está ativado em Configurações do Android → Notificações → Acesso especial → Meu Bolso. Em celulares Xiaomi/MIUI, certifique-se de que a bateria está sem restrições e a inicialização automática está ativa.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:12px">
+      <h3 style="margin-top:0">Meus dados ficam seguros?</h3>
+      <p>Sim. Todos os dados ficam armazenados localmente no seu dispositivo. O app não possui servidor próprio e não transmite suas informações para nenhum lugar, exceto a API Gemini (opcional) para análise de texto das notificações.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:12px">
+      <h3 style="margin-top:0">Como editar uma transação?</h3>
+      <p>Na lista de transações da tela principal, deslize o item para a <strong>direita</strong>. Um dialog abrirá com os campos de descrição e valor para edição.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:12px">
+      <h3 style="margin-top:0">Como remover uma transação?</h3>
+      <p>Na lista de transações, deslize o item para a <strong>esquerda</strong>. Uma confirmação será solicitada antes da remoção.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:12px">
+      <h3 style="margin-top:0">O que acontece com o saldo ao fechar um período?</h3>
+      <p>Você escolhe: somar ao orçamento do próximo mês ou registrar como poupança/investimento. Em ambos os casos, o valor é registrado no histórico.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:12px">
+      <h3 style="margin-top:0">Como conseguir a chave da API Gemini?</h3>
+      <p>Acesse <strong>aistudio.google.com</strong>, faça login com sua conta Google e crie uma chave de API gratuita. Cole a chave em Configurações → API Key Gemini no app.</p>
+    </div>
+
+    <div class="card">
+      <h3 style="margin-top:0">O app funciona sem internet?</h3>
+      <p>Sim! A detecção automática funciona offline usando análise local por palavras-chave. A internet é necessária apenas para a análise por IA (Gemini) e para baixar atualizações do app.</p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>Meu Bolso — Versão Beta | Desenvolvido com ❤️</p>
+  <p><a href="https://guileguto.github.io/meubolso-privacy/">Política de Privacidade</a></p>
+  <p style="margin-top:16px; font-size:12px; color:#484F58">Este app está em desenvolvimento ativo. Funcionalidades podem mudar nas próximas versões.</p>
+</footer>
+
+</body>
+</html>
