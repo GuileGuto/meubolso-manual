@@ -47,6 +47,7 @@
   .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; margin-left: 8px; }
   .badge-blue { background: #1565C020; color: #1976D2; border: 1px solid #1976D220; }
   .badge-green { background: #43A04720; color: #43A047; border: 1px solid #43A04720; }
+  .badge-new { background: #1976D2; color: white; font-size: 11px; padding: 1px 8px; border-radius: 10px; margin-left: 6px; vertical-align: middle; }
 
   .swipe-demo { display: flex; gap: 8px; margin: 16px 0; }
   .swipe-card { flex: 1; border-radius: 10px; padding: 14px; text-align: center; }
@@ -54,6 +55,17 @@
   .swipe-right { background: #1976D220; border: 1px solid #1976D240; }
   .swipe-card .icon { font-size: 24px; margin-bottom: 6px; }
   .swipe-card p { font-size: 13px; margin: 0; }
+
+  .status-row { display: flex; gap: 12px; margin: 12px 0; }
+  .status-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
+  .status-pago { background: #1A2E7D32; color: #5DCAA5; border: 1px solid #2E7D3240; }
+  .status-pendente { background: #1AE65100; color: #EF9F27; border: 1px solid #E6510040; }
+
+  .match-card { background: #1C2128; border: 1px solid #1976D2; border-radius: 12px; padding: 16px; margin: 16px 0; }
+  .match-card p { margin: 0 0 12px; font-size: 14px; }
+  .match-btns { display: flex; gap: 8px; justify-content: flex-end; }
+  .btn-sim { background: #1976D2; color: white; border: none; border-radius: 8px; padding: 6px 16px; font-size: 13px; font-weight: 600; }
+  .btn-nao { background: transparent; color: #8B949E; border: 1px solid #30363D; border-radius: 8px; padding: 6px 16px; font-size: 13px; }
 
   table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
   th { background: #1C2128; color: #E6EDF3; padding: 10px 14px; text-align: left; border-bottom: 1px solid #30363D; }
@@ -68,6 +80,7 @@
     header h1 { font-size: 24px; }
     h2 { font-size: 20px; }
     .swipe-demo { flex-direction: column; }
+    .status-row { flex-direction: column; }
   }
 </style>
 </head>
@@ -84,11 +97,12 @@
   <a href="#inicio">Início</a>
   <a href="#tela-principal">Tela Principal</a>
   <a href="#transacoes">Transações</a>
+  <a href="#fixos">Gastos Fixos</a>
   <a href="#periodos">Períodos</a>
   <a href="#resumo">Resumo</a>
   <a href="#historico">Histórico</a>
-  <a href="#fixos">Gastos Fixos</a>
   <a href="#configuracoes">Configurações</a>
+  <a href="#backup">Backup</a>
   <a href="#permissoes">Permissões</a>
   <a href="#faq">FAQ</a>
 </nav>
@@ -153,6 +167,19 @@
       </ul>
     </div>
 
+    <h3>Sugestões de vínculo com fixos <span class="badge-new">Novo</span></h3>
+    <div class="card card-blue">
+      <p>Quando o app detecta um gasto cujo valor ou nome seja parecido com um gasto fixo cadastrado, um card de sugestão aparece automaticamente acima da lista:</p>
+      <div class="match-card">
+        <p>💡 Detectamos R$ 91,00 em "CONTA VIVO". É referente ao seu fixo "Internet/Telefone" (R$ 91,00)?</p>
+        <div class="match-btns">
+          <button class="btn-nao">Não</button>
+          <button class="btn-sim">Sim, é esse</button>
+        </div>
+      </div>
+      <p style="margin-top:8px">• <strong>Sim, é esse</strong> — o fixo é marcado como pago e o gasto fica registrado normalmente.<br>• <strong>Não</strong> — o gasto permanece como pontual, sem vínculo com o fixo.</p>
+    </div>
+
     <h3>Botões de navegação</h3>
     <div class="card">
       <p><strong>Histórico de períodos</strong> — veja todos os meses anteriores com gráfico de evolução.</p>
@@ -165,13 +192,14 @@
       <ul style="margin: 8px 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
         <li><strong>↓ Gasto</strong> — registra uma saída com valor, local e data</li>
         <li><strong>↑ Entrada</strong> — registra uma receita com descrição, valor e data</li>
-        <li><strong>Fixos</strong> — gerencia os gastos fixos recorrentes</li>
+        <li><strong>Fixos</strong> — cadastra um novo gasto fixo recorrente</li>
       </ul>
     </div>
 
     <h3>Abas de filtro</h3>
     <div class="card">
       <p>Filtre a lista de transações por: <strong>Todas · Fixas · Pontuais · Entradas</strong></p>
+      <p>A aba <strong>Fixas</strong> mostra seus gastos fixos cadastrados com o status de pagamento do mês atual.</p>
     </div>
 
     <h3>Ocultar valores</h3>
@@ -232,6 +260,9 @@
     <p>Ao deslizar para a <strong>direita</strong>, um dialog abre com os campos de descrição e valor preenchidos para edição.</p>
     <p>Ao deslizar para a <strong>esquerda</strong>, uma confirmação é solicitada antes de remover permanentemente.</p>
 
+    <h3>Alterar categoria</h3>
+    <p>Toque na <strong>categoria colorida</strong> de qualquer transação na lista para abrir o seletor e alterar para outra categoria.</p>
+
     <h3>Categorias disponíveis</h3>
     <table>
       <tr><th>Categoria</th><th>Exemplos</th></tr>
@@ -244,10 +275,73 @@
       <tr><td>📚 Educação</td><td>Cursos, livros, mensalidades</td></tr>
       <tr><td>🏠 Habitação</td><td>Aluguel, condomínio, IPTU</td></tr>
       <tr><td>📱 Telecom</td><td>Internet, celular, TV</td></tr>
-      <tr><td>💸 Pix</td><td>Transferências via Pix</td></tr>
+      <tr><td>💸 Pix / Transferência</td><td>Transferências via Pix ou TED</td></tr>
       <tr><td>💚 Recebido</td><td>Entradas, receitas</td></tr>
       <tr><td>📦 Outros</td><td>Demais gastos</td></tr>
     </table>
+  </section>
+
+  <!-- GASTOS FIXOS -->
+  <section id="fixos">
+    <h2><span class="icon">🔄</span> Gastos Fixos</h2>
+    <p>Gastos que se repetem todo mês — como aluguel, internet ou academia. Os gastos fixos <strong>não são descontados automaticamente</strong> do orçamento. Eles ficam como <strong>Pendentes</strong> até você confirmar o pagamento.</p>
+
+    <h3>Adicionar um gasto fixo</h3>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Toque em "Fixos" na tela principal</h4>
+        <p>Na seção de adição manual, ao lado dos botões Gasto e Entrada.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Preencha os dados</h4>
+        <p>Informe o <strong>nome</strong> (ex: Aluguel), o <strong>valor</strong>, a <strong>categoria</strong> e o <strong>dia de vencimento</strong> do mês.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Toque em "Salvar"</h4>
+        <p>O fixo aparece na aba <strong>Fixas</strong> da tela principal com status <span class="status-badge status-pendente">PENDENTE</span></p>
+      </div>
+    </div>
+
+    <h3>Status de pagamento</h3>
+    <div class="card">
+      <p>Cada gasto fixo na aba <strong>Fixas</strong> exibe seu status para o mês atual:</p>
+      <div class="status-row">
+        <span class="status-badge status-pendente">PENDENTE</span>
+        <span class="status-badge status-pago">✓ PAGO</span>
+      </div>
+      <p style="margin-top: 12px;">Quando pago, o nome aparece riscado e o valor fica cinza, indicando que já foi quitado neste mês.</p>
+    </div>
+
+    <h3>Marcar como pago manualmente</h3>
+    <p>Na aba <strong>Fixas</strong>, toque no <strong>ícone de círculo</strong> à esquerda de qualquer fixo com status Pendente. Um dialog de confirmação será exibido antes de registrar o pagamento.</p>
+
+    <div class="tip">
+      <span class="tip-icon">🤖</span>
+      <p><strong>Detecção automática:</strong> Se o app detectar uma notificação bancária com valor ou nome parecido com um fixo pendente, um card de sugestão aparecerá na tela principal perguntando se é o pagamento daquele fixo.</p>
+    </div>
+
+    <h3>Alterar a categoria de um fixo</h3>
+    <p>Na aba <strong>Fixas</strong>, toque no texto da <strong>categoria</strong> (emoji + nome) do fixo que deseja alterar. O seletor de categorias será aberto.</p>
+
+    <h3>Remover um gasto fixo</h3>
+    <p>Na aba <strong>Fixas</strong>, toque no ícone de <strong>lixeira 🗑</strong> ao lado direito do fixo. Ao remover um fixo que já estava pago, o gasto vinculado também é removido.</p>
+
+    <h3>Avisos de vencimento <span class="badge-new">Novo</span></h3>
+    <div class="card card-orange">
+      <p>O app pode enviar notificações avisando sobre fixos que vão vencer em breve. Configure em <strong>Configurações → Alerta de vencimento</strong>:</p>
+      <ul style="margin: 8px 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
+        <li>Ative o toggle <strong>"Alerta de vencimento"</strong></li>
+        <li>Use o slider para definir com quantos dias de antecedência quer ser avisado (1 a 7 dias)</li>
+        <li>O app também notifica no próprio dia do vencimento</li>
+      </ul>
+    </div>
   </section>
 
   <!-- PERÍODOS -->
@@ -277,10 +371,17 @@
         <p><strong>Somar ao próximo período</strong> — o saldo restante vira saldo inicial do próximo mês.<br><strong>Guardar/Investir</strong> — o saldo é registrado como poupança e o próximo mês começa zerado.</p>
       </div>
     </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h4>Escolha o que fazer com os gastos fixos <span class="badge-new">Novo</span></h4>
+        <p><strong>Sim, manter</strong> — os fixos são mantidos para o próximo período, com status resetado para Pendente.<br><strong>Não, remover</strong> — todos os fixos são excluídos e o próximo período começa sem nenhum.</p>
+      </div>
+    </div>
 
-    <div class="warning">
-      <span style="font-size:18px">⚠️</span>
-      <p>Ao fechar um período, os <strong>gastos fixos recorrentes</strong> são aplicados automaticamente no novo período.</p>
+    <div class="tip">
+      <span class="tip-icon">💡</span>
+      <p>Na maioria dos casos, escolha <strong>Sim, manter</strong> para não precisar recadastrar seus fixos todo mês.</p>
     </div>
   </section>
 
@@ -332,40 +433,6 @@
     </div>
   </section>
 
-  <!-- GASTOS FIXOS -->
-  <section id="fixos">
-    <h2><span class="icon">🔄</span> Gastos Fixos</h2>
-    <p>Gastos que se repetem todo mês — como aluguel, internet ou academia. Acesse tocando em <strong>"Fixos"</strong> na tela principal.</p>
-
-    <h3>Adicionar um gasto fixo</h3>
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-content">
-        <h4>Toque no botão "+"</h4>
-        <p>Na tela de Gastos Fixos.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-content">
-        <h4>Preencha nome, valor e categoria</h4>
-        <p>Ex: Nome = "Aluguel", Valor = 1200,00, Categoria = Habitação.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-content">
-        <h4>Ative "Recorrente" se desejar</h4>
-        <p>Com o toggle ativado, o gasto é aplicado automaticamente a cada novo período.</p>
-      </div>
-    </div>
-
-    <div class="tip">
-      <span class="tip-icon">💡</span>
-      <p>Gastos fixos recorrentes aparecem na aba <strong>"Fixas"</strong> da tela principal e são contabilizados separadamente no card azul.</p>
-    </div>
-  </section>
-
   <!-- CONFIGURAÇÕES -->
   <section id="configuracoes">
     <h2><span class="icon">⚙️</span> Configurações</h2>
@@ -373,12 +440,17 @@
 
     <h3>Entrada segura (Biometria)</h3>
     <div class="card">
-      <p>Quando ativado, o app solicita sua digital ou PIN ao abrir. <strong>Desativado por padrão.</strong></p>
+      <p>Quando ativado, o app solicita sua digital, PIN ou padrão ao abrir. <strong>Desativado por padrão.</strong></p>
     </div>
 
     <h3>Alerta de orçamento</h3>
     <div class="card card-orange">
       <p>Ative para receber uma notificação quando seus gastos atingirem o percentual configurado do orçamento mensal. O slider permite ajustar de <strong>50% a 95%</strong> (padrão: 80%).</p>
+    </div>
+
+    <h3>Alerta de vencimento <span class="badge-new">Novo</span></h3>
+    <div class="card card-orange">
+      <p>Ative para receber notificações sobre gastos fixos que estão próximos do vencimento. Use o slider para definir com quantos dias de antecedência deseja ser avisado — de <strong>1 a 7 dias</strong> antes.</p>
     </div>
 
     <h3>Orçamento mensal</h3>
@@ -397,6 +469,68 @@
     </div>
   </section>
 
+  <!-- BACKUP -->
+  <section id="backup">
+    <h2><span class="icon">💾</span> Backup e Restauração <span class="badge-new">Novo</span></h2>
+    <p>Proteja seus dados exportando um backup completo do app. O arquivo pode ser salvo onde você quiser — Google Drive, WhatsApp, e-mail ou qualquer outro app.</p>
+
+    <h3>Exportar backup</h3>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Vá em Configurações → Exportar</h4>
+        <p>Toque no botão <strong>"Exportar"</strong> na seção "Backup e restauração".</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Escolha onde salvar</h4>
+        <p>O Android abrirá o compartilhamento. Escolha Google Drive, WhatsApp, e-mail ou salve no dispositivo.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Pronto!</h4>
+        <p>O arquivo <code>meubolso_backup_YYYYMMDD_HHmm.json</code> contém todos os seus gastos, períodos e fixos.</p>
+      </div>
+    </div>
+
+    <h3>Importar backup</h3>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Vá em Configurações → Importar</h4>
+        <p>Toque no botão <strong>"Importar"</strong>. Uma confirmação será solicitada antes de prosseguir.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Selecione o arquivo de backup</h4>
+        <p>Navegue até o arquivo <code>.json</code> do backup salvo anteriormente.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Aguarde e reinicie o app</h4>
+        <p>O app exibirá um resumo dos dados restaurados (transações, períodos e fixos). Feche e abra o app para ver tudo atualizado.</p>
+      </div>
+    </div>
+
+    <div class="warning">
+      <span style="font-size:18px">⚠️</span>
+      <p><strong>Atenção:</strong> Importar um backup substitui <strong>todos os dados atuais</strong> do app. Esta ação não pode ser desfeita. Exporte um backup dos dados atuais antes de importar, caso queira preservá-los.</p>
+    </div>
+
+    <div class="tip">
+      <span class="tip-icon">💡</span>
+      <p><strong>Dica:</strong> Faça backup regularmente — especialmente antes de trocar de celular ou atualizar o app. Salve uma cópia no Google Drive para acesso fácil em qualquer dispositivo.</p>
+    </div>
+  </section>
+
   <!-- PERMISSÕES -->
   <section id="permissoes">
     <h2><span class="icon">🔐</span> Permissões necessárias</h2>
@@ -404,7 +538,7 @@
     <table>
       <tr><th>Permissão</th><th>Para que serve</th><th>Obrigatória?</th></tr>
       <tr><td>Acesso a notificações</td><td>Ler notificações bancárias para detectar gastos</td><td>✅ Sim</td></tr>
-      <tr><td>Notificações do app</td><td>Enviar alertas de orçamento (Android 13+)</td><td>Recomendada</td></tr>
+      <tr><td>Notificações do app</td><td>Alertas de orçamento e vencimento de fixos (Android 13+)</td><td>Recomendada</td></tr>
       <tr><td>Internet</td><td>Comunicação com a API Gemini para análise por IA</td><td>Opcional</td></tr>
       <tr><td>Iniciar com o sistema</td><td>Reativar o monitoramento após reinicialização</td><td>Recomendada</td></tr>
     </table>
@@ -461,7 +595,22 @@
 
     <div class="card" style="margin-bottom:12px">
       <h3 style="margin-top:0">O que acontece com o saldo ao fechar um período?</h3>
-      <p>Você escolhe: somar ao orçamento do próximo mês ou registrar como poupança/investimento. Em ambos os casos, o valor é registrado no histórico.</p>
+      <p>Você escolhe: somar ao orçamento do próximo mês ou registrar como poupança/investimento. Em ambos os casos, o valor é registrado no histórico. Você também escolhe se os gastos fixos são mantidos ou removidos para o próximo período.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:12px">
+      <h3 style="margin-top:0">Por que o gasto fixo não desconta do orçamento automaticamente?</h3>
+      <p>O Meu Bolso foi projetado para refletir o que você <strong>efetivamente pagou</strong>, não compromissos futuros. Os fixos ficam como Pendentes até você confirmar o pagamento — seja manualmente ou pelo matching automático com uma notificação bancária.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:12px">
+      <h3 style="margin-top:0">O que é o card de sugestão que aparece na home?</h3>
+      <p>Quando o app detecta um gasto cujo valor ou nome seja parecido com um fixo cadastrado, ele sugere o vínculo. Se você confirmar, o fixo é marcado como pago e o gasto fica registrado normalmente. Se recusar, o gasto vira pontual sem vínculo.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:12px">
+      <h3 style="margin-top:0">Como fazer backup dos meus dados?</h3>
+      <p>Vá em <strong>Configurações → Exportar</strong>. O app gera um arquivo JSON com todos os seus dados e abre o compartilhamento do Android para você salvar onde preferir.</p>
     </div>
 
     <div class="card" style="margin-bottom:12px">
