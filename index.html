@@ -26,6 +26,7 @@
   .card-green { border-left: 4px solid #43A047; }
   .card-orange { border-left: 4px solid #FB8C00; }
   .card-red { border-left: 4px solid #EF5350; }
+  .card-purple { border-left: 4px solid #7B1FA2; }
   .step { display: flex; gap: 16px; margin-bottom: 20px; align-items: flex-start; }
   .step-num { background: #1976D2; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
   .step-content h4 { font-size: 15px; font-weight: 600; color: #E6EDF3; margin-bottom: 4px; }
@@ -35,19 +36,18 @@
   .tip p { margin: 0; font-size: 14px; color: #8B949E; }
   .warning { background: #1C2128; border: 1px solid #FB8C00; border-radius: 8px; padding: 14px 18px; margin: 16px 0; display: flex; gap: 12px; align-items: flex-start; }
   .warning p { margin: 0; font-size: 14px; color: #8B949E; }
-  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; margin-left: 8px; }
-  .badge-blue { background: #1565C020; color: #1976D2; border: 1px solid #1976D220; }
   .badge-new { background: #1976D2; color: white; font-size: 11px; padding: 1px 8px; border-radius: 10px; margin-left: 6px; vertical-align: middle; }
+  .badge-blue { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; margin-left: 8px; background: #1565C020; color: #1976D2; border: 1px solid #1976D220; }
   .swipe-demo { display: flex; gap: 8px; margin: 16px 0; }
   .swipe-card { flex: 1; border-radius: 10px; padding: 14px; text-align: center; }
   .swipe-left { background: #EF535020; border: 1px solid #EF535040; }
   .swipe-right { background: #1976D220; border: 1px solid #1976D240; }
   .swipe-card .icon { font-size: 24px; margin-bottom: 6px; }
   .swipe-card p { font-size: 13px; margin: 0; }
-  .status-row { display: flex; gap: 12px; margin: 12px 0; }
+  .status-row { display: flex; gap: 12px; margin: 12px 0; flex-wrap: wrap; }
   .status-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
   .status-pago { background: #1A2E7D32; color: #5DCAA5; border: 1px solid #2E7D3240; }
-  .status-pendente { background: #1AE65100; color: #EF9F27; border: 1px solid #E6510040; }
+  .status-pendente { color: #EF9F27; border: 1px solid #E6510040; background: transparent; }
   .match-card { background: #1C2128; border: 1px solid #1976D2; border-radius: 12px; padding: 16px; margin: 16px 0; }
   .match-card p { margin: 0 0 12px; font-size: 14px; }
   .match-btns { display: flex; gap: 8px; justify-content: flex-end; }
@@ -80,10 +80,11 @@
 <nav>
   <a href="#inicio">Início</a>
   <a href="#tela-principal">Tela Principal</a>
+  <a href="#credito">Cartão de Crédito</a>
   <a href="#transacoes">Transações</a>
   <a href="#comprovantes">Comprovantes</a>
   <a href="#fixos">Gastos Fixos</a>
-  <a href="#orcamento">Orçamento</a>
+  <a href="#chat">Assistente IA</a>
   <a href="#padroes">Padrões</a>
   <a href="#periodos">Períodos</a>
   <a href="#resumo">Resumo</a>
@@ -99,40 +100,40 @@
   <!-- INÍCIO -->
   <section id="inicio">
     <h2><span class="icon">🚀</span> Primeiros passos</h2>
-    <p>O <strong>Meu Bolso</strong> detecta automaticamente seus gastos lendo as notificações dos aplicativos bancários — sem precisar digitar nada. Basta deixar o app rodando em segundo plano.</p>
+    <p>O <strong>Meu Bolso</strong> detecta automaticamente seus gastos lendo as notificações dos aplicativos bancários — sem precisar digitar nada. A IA analisa cada notificação e categoriza o gasto automaticamente.</p>
 
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <h4>Apresentação e permissões</h4>
-        <p>Na primeira abertura, o app exibe 3 slides de boas-vindas explicando como funciona. Ao final, solicita a permissão de acesso a notificações.</p>
+        <h4>Conceda acesso às notificações</h4>
+        <p>Na primeira abertura, o app solicita acesso a notificações. Toque em "Conceder", encontre o <strong>Meu Bolso</strong> na lista e ative.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <h4>Conceda acesso às notificações</h4>
-        <p>Toque em "Conceder", encontre o <strong>Meu Bolso</strong> na lista e ative o acesso. Sem essa permissão, a detecção automática não funciona.</p>
+        <h4>Configure o orçamento e estado</h4>
+        <p>Vá em <strong>Configurações ⚙️ → Financeiro</strong>. Defina o orçamento mensal e selecione seu estado — usado para estimativa de impostos.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <h4>Configure o orçamento mensal</h4>
-        <p>Vá em <strong>Configurações ⚙️</strong> e defina quanto deseja gastar por mês. Isso ativa a barra de progresso e os alertas de orçamento.</p>
+        <h4>Cadastre seus cartões de crédito (opcional)</h4>
+        <p>Em <strong>Configurações → Cartões de Crédito</strong>, adicione seus cartões com nome, dia de fechamento e dia de vencimento. Isso ativa o controle de faturas.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
         <h4>Use normalmente seu banco</h4>
-        <p>Quando receber uma notificação de compra, débito ou Pix, o Meu Bolso registra automaticamente o valor e categoriza o gasto.</p>
+        <p>Quando receber uma notificação de compra, débito ou Pix, o Meu Bolso registra automaticamente e categoriza com IA.</p>
       </div>
     </div>
 
     <div class="tip">
       <span class="tip-icon">💡</span>
-      <p><strong>Samsung (Galaxy):</strong> Vá em Configurações → Apps → Meu Bolso → Bateria → <strong>Sem restrições</strong> e ative <strong>Permitir atividade em segundo plano</strong>. No Xiaomi/MIUI, ative também a <strong>Inicialização automática</strong>.</p>
+      <p><strong>Samsung (Galaxy):</strong> Vá em Configurações → Apps → Meu Bolso → Bateria → <strong>Sem restrições</strong>. No Xiaomi/MIUI, ative também a <strong>Inicialização automática</strong>.</p>
     </div>
   </section>
 
@@ -144,49 +145,64 @@
     <div class="card card-blue">
       <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
         <li><strong>Gastos de [Mês Ano]</strong> — nome do período atual</li>
-        <li><strong>Restam R$ X</strong> — quanto resta do orçamento</li>
+        <li><strong>Valor total</strong> — soma de débito e Pix (crédito não entra aqui)</li>
+        <li><strong>Restam R$ X</strong> — saldo do orçamento</li>
         <li><strong>Fixas / Pontuais / Entradas</strong> — subtotais por tipo</li>
+        <li><strong>💳 Compromissos no crédito</strong> — fatura atual e próxima (se houver cartão cadastrado)</li>
         <li><strong>N transações · Ver resumo</strong></li>
       </ul>
     </div>
 
-    <h3>Alerta de estouro de orçamento <span class="badge-new">Novo</span></h3>
+    <h3>Ocultar valores</h3>
+    <div class="card">
+      <p>Toque no ícone de <strong>olho 👁</strong> no card azul para ocultar todos os valores — total, fixas, pontuais, entradas e faturas do crédito. Útil em lugares públicos.</p>
+    </div>
+
+    <h3>Alerta de estouro de orçamento</h3>
     <div class="card card-red">
-      <p>Quando os gastos ultrapassam o orçamento definido:</p>
+      <p>Quando os gastos ultrapassam o orçamento:</p>
       <ul style="margin: 8px 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
         <li>O card azul fica <strong>vermelho escuro</strong></li>
-        <li>O texto "Restam R$ X" vira <strong style="color:#EF5350">"Estourou R$ X"</strong></li>
-        <li>Uma <strong>notificação push</strong> é enviada uma única vez por período</li>
-        <li>Ao fechar o período, o valor de estouro aparece em destaque no dialog</li>
+        <li>O texto muda para <strong style="color:#EF5350">"Estourou R$ X"</strong></li>
+        <li>Uma notificação push é enviada uma vez por período</li>
       </ul>
+    </div>
+
+    <h3>Tipo de pagamento desconhecido</h3>
+    <div class="card card-orange">
+      <p>Quando o banco não informa se foi débito ou crédito, a notificação aparece com borda laranja e dois botões — <strong>Débito</strong> e <strong>Crédito</strong> — para você definir sem abrir o app. A transação também fica marcada na lista com ⚠️.</p>
     </div>
 
     <h3>Sugestões de vínculo com fixos</h3>
     <div class="card card-blue">
-      <p>Quando o app detecta um gasto parecido com um fixo cadastrado, aparece um card de sugestão:</p>
+      <p>Quando o app detecta um gasto parecido com um fixo cadastrado:</p>
       <div class="match-card">
-        <p>💡 Detectamos R$ 91,00 em "CONTA VIVO". É referente ao seu fixo "Internet/Telefone" (R$ 91,00)?</p>
+        <p>💡 Detectamos R$ 91,00 em "CONTA VIVO". É referente ao seu fixo "Internet" (R$ 91,00)?</p>
         <div class="match-btns">
           <button class="btn-nao">Não</button>
           <button class="btn-sim">Sim, é esse</button>
         </div>
       </div>
+      <p style="margin-top:8px;margin-bottom:0">Ao confirmar, a transação é renomeada para o nome do gasto fixo automaticamente.</p>
     </div>
 
     <h3>Botões de navegação</h3>
     <div class="card">
-      <p><strong>Histórico</strong> — todos os meses anteriores com gráfico de evolução.</p>
-      <p><strong>Fechar período</strong> — encerra o mês e inicia um novo período.</p>
-      <p><strong>📈 Padrões</strong> — análise de comportamento financeiro e previsão de saldo.</p>
+      <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
+        <li><strong>Histórico</strong> — todos os meses anteriores</li>
+        <li><strong>Fechar</strong> — encerra o mês e inicia novo período</li>
+        <li><strong>📊</strong> — tela de Padrões financeiros</li>
+        <li><strong>💬</strong> — Assistente financeiro IA</li>
+      </ul>
     </div>
 
     <h3>Adição manual</h3>
     <div class="card">
       <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
         <li><strong>↓ Gasto</strong> — registra uma saída com valor, local e data</li>
-        <li><strong>↑ Entrada</strong> — registra uma receita com descrição, valor e data</li>
-        <li><strong>📅 Fixos</strong> — cadastra um novo gasto fixo recorrente</li>
-        <li><strong>📷 Comprovante</strong> — escaneia um comprovante via câmera, galeria ou PDF</li>
+        <li><strong>↑ Entrada</strong> — registra uma receita</li>
+        <li><strong>📅 Fixos</strong> — cadastra um gasto fixo recorrente</li>
+        <li><strong>📷 Comprovante</strong> — escaneia via câmera, galeria ou PDF</li>
       </ul>
     </div>
 
@@ -194,34 +210,76 @@
     <div class="card">
       <p>Filtre a lista por: <strong>Todas · Fixas · Pontuais · Entradas</strong></p>
     </div>
+  </section>
 
-    <h3>Ocultar valores</h3>
+  <!-- CARTÃO DE CRÉDITO -->
+  <section id="credito">
+    <h2><span class="icon">💳</span> Cartão de Crédito <span class="badge-new">Novo</span></h2>
+    <p>O Meu Bolso diferencia gastos no crédito de débito/Pix. Compras no crédito <strong>não reduzem o saldo do mês atual</strong> — aparecem como compromisso futuro.</p>
+
+    <h3>Como funciona</h3>
+    <div class="card card-blue">
+      <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
+        <li><strong>Débito/Pix</strong> — desconta do saldo do mês atual imediatamente</li>
+        <li><strong>Crédito</strong> — aparece em "Compromissos no crédito" sem afetar o saldo</li>
+        <li><strong>Fatura atual</strong> — compras no ciclo que vai vencer em breve</li>
+        <li><strong>Próxima fatura</strong> — compras feitas após o fechamento do cartão</li>
+      </ul>
+    </div>
+
+    <h3>Cadastrar cartão</h3>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Configurações → Cartões de Crédito → + Adicionar</h4>
+        <p>Informe o nome do cartão (ex: Nubank), o dia de fechamento e o dia de vencimento.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>O app calcula as faturas automaticamente</h4>
+        <p>Cada compra no crédito é alocada na fatura correta com base no dia de fechamento.</p>
+      </div>
+    </div>
+
+    <h3>Pagar fatura</h3>
+    <div class="card card-green">
+      <p>Toque em <strong>"Pagar fatura"</strong> na seção de compromissos do card azul. Selecione o cartão e confirme. As compras daquela fatura são marcadas como pagas e somem dos compromissos futuros.</p>
+      <p style="margin-bottom:0"><strong>Detecção automática:</strong> quando o app identifica um pagamento de fatura via notificação, pergunta se deseja confirmar o pagamento.</p>
+    </div>
+
+    <h3>Tipo desconhecido</h3>
+    <div class="card card-orange">
+      <p>Alguns bancos (ex: Santander) não informam se a compra foi débito ou crédito. Nesses casos, a notificação inclui botões <strong>Débito</strong> e <strong>Crédito</strong> direto no painel de notificações — toque uma vez para definir sem abrir o app.</p>
+    </div>
+
+    <h3>Resumo e gráficos</h3>
     <div class="card">
-      <p>Toque no ícone de <strong>olho 👁</strong> no card azul para ocultar todos os valores — útil em lugares públicos.</p>
+      <p>Na tela de Resumo, as compras no crédito aparecem como uma fatia separada <strong>"💳 Crédito"</strong> no gráfico de pizza — porque representam um gasto real do mês, mesmo que o dinheiro saia no próximo.</p>
     </div>
   </section>
 
   <!-- TRANSAÇÕES -->
   <section id="transacoes">
-    <h2><span class="icon">💳</span> Transações</h2>
+    <h2><span class="icon">📋</span> Transações</h2>
 
     <h3>Detecção automática</h3>
-    <p>Quando você recebe uma notificação bancária de compra, débito ou Pix, o app analisa o conteúdo usando inteligência artificial (Google Gemini) ou, se não houver conexão, por análise local. O gasto é registrado automaticamente com valor, estabelecimento e categoria.</p>
+    <p>Quando você recebe uma notificação bancária, o app analisa o conteúdo com IA (Google Gemini via servidor centralizado) ou, sem internet, por análise local. O gasto é registrado com valor, estabelecimento, categoria e tipo de pagamento.</p>
+
+    <h3>Ao tocar na notificação</h3>
+    <div class="card card-blue">
+      <p>Tocar em qualquer notificação do Meu Bolso abre o app direto na tela principal.</p>
+    </div>
 
     <h3>Bancos suportados</h3>
-    <p>O app detecta notificações de mais de 40 bancos e carteiras digitais, incluindo:</p>
     <div class="card">
       <p style="margin:0; font-size:14px; color:#8B949E; line-height:2">
-        Itaú · Bradesco · Banco do Brasil · Santander · <strong>Caixa</strong> · Nubank · Inter · C6 · PicPay · Neon · Pan · <strong>Sicredi</strong> · Sicoob · Ailos · PagBank · Mercado Pago · BTG · XP · Banrisul · Safra · Will Bank · Agibank · e muitos outros.
+        Itaú · Bradesco · Banco do Brasil · Santander · Caixa · Nubank · Inter · C6 · PicPay · Neon · Pan · Sicredi · Sicoob · Ailos · PagBank · Mercado Pago · BTG · XP · Banrisul · Safra · Will Bank · Agibank · Samsung Pay · e muitos outros.
       </p>
     </div>
 
-    <div class="tip">
-      <span class="tip-icon">🤖</span>
-      <p>Para categorização por IA, configure sua chave da API Gemini em <strong>Configurações → API Key Gemini</strong>. Obtenha gratuitamente em <strong>aistudio.google.com</strong>.</p>
-    </div>
-
-    <h3>Editar uma transação <span class="badge badge-blue">Swipe →</span></h3>
+    <h3>Editar uma transação <span class="badge-blue">Swipe →</span></h3>
     <div class="swipe-demo">
       <div class="swipe-card swipe-right">
         <div class="icon">✏️</div>
@@ -233,17 +291,24 @@
       </div>
     </div>
 
-    <h3>Alterar categoria</h3>
-    <p>Toque na <strong>categoria colorida</strong> de qualquer transação para alterar.</p>
+    <h3>Outras ações</h3>
+    <div class="card">
+      <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
+        <li><strong>Toque na categoria colorida</strong> — altera a categoria</li>
+        <li><strong>Toque longo</strong> — adiciona ou edita comentário na transação</li>
+        <li><strong>Toque em ⚠️</strong> — define se foi débito ou crédito (quando não identificado)</li>
+      </ul>
+    </div>
 
     <h3>Categorias disponíveis</h3>
     <table>
       <tr><th>Categoria</th><th>Exemplos</th></tr>
-      <tr><td>🍔 Alimentação</td><td>Restaurantes, delivery, cafés</td></tr>
-      <tr><td>🥪 Lanche</td><td>Lanches, salgados, açaí, sorvete, hot dog</td></tr>
+      <tr><td>🍔 Alimentação</td><td>Restaurantes, bares, cafés</td></tr>
+      <tr><td>🥪 Lanche</td><td>Lanches, salgados, açaí, sorvete</td></tr>
+      <tr><td>🛵 Delivery</td><td>iFood, Rappi, Uber Eats, Loggi</td></tr>
       <tr><td>🛒 Supermercado</td><td>Mercados, hortifruti</td></tr>
       <tr><td>🚗 Transporte</td><td>Combustível, Uber, ônibus</td></tr>
-      <tr><td>💊 Saúde</td><td>Farmácias, consultas, exames</td></tr>
+      <tr><td>💊 Saúde</td><td>Farmácias, consultas, plano de saúde</td></tr>
       <tr><td>🎬 Entretenimento</td><td>Streaming, cinema, jogos</td></tr>
       <tr><td>👕 Vestuário</td><td>Roupas, calçados, acessórios</td></tr>
       <tr><td>📚 Educação</td><td>Cursos, livros, mensalidades</td></tr>
@@ -257,160 +322,139 @@
 
   <!-- COMPROVANTES -->
   <section id="comprovantes">
-    <h2><span class="icon">📷</span> Leitura de Comprovantes <span class="badge-new">Novo</span></h2>
-    <p>Fotografe ou selecione um comprovante e o app extrai automaticamente o valor, data, estabelecimento e categoria usando o Google Gemini.</p>
+    <h2><span class="icon">📷</span> Leitura de Comprovantes</h2>
+    <p>Fotografe ou selecione um comprovante e o app extrai automaticamente o valor, data, estabelecimento e categoria usando IA.</p>
 
-    <h3>Como usar</h3>
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
         <h4>Toque em "📷 Comprovante"</h4>
-        <p>Na seção de adição manual da tela principal.</p>
+        <p>Na seção de adição manual. O app pedirá permissão de câmera na primeira vez.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
         <h4>Escolha a origem</h4>
-        <p><strong>📷 Tirar foto</strong> — abre a câmera para fotografar o comprovante físico.<br><strong>🖼 Galeria</strong> — seleciona um print ou screenshot já salvo.<br><strong>📄 PDF</strong> — seleciona um arquivo PDF (nota fiscal, comprovante bancário).</p>
+        <p><strong>📷 Tirar foto</strong> — câmera para comprovantes físicos.<br><strong>🖼 Galeria</strong> — print ou screenshot salvo.<br><strong>📄 PDF</strong> — nota fiscal ou comprovante bancário.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
         <h4>Confirme o registro</h4>
-        <p>O app mostra o que foi extraído — valor, local, categoria e data — para você conferir antes de registrar.</p>
+        <p>O app mostra o que foi extraído para você conferir antes de registrar.</p>
       </div>
     </div>
 
-    <h3>Fila offline</h3>
     <div class="card card-blue">
-      <p>Sem internet no momento? Sem problema. O app salva o comprovante localmente e processa automaticamente quando a conexão voltar — um por um, na ordem que foram capturados. Você recebe uma notificação para cada comprovante analisado.</p>
-    </div>
-
-    <div class="tip">
-      <span class="tip-icon">💡</span>
-      <p>Esta funcionalidade requer a <strong>API Key do Gemini</strong> configurada em Configurações. Sem ela, o botão avisa que é necessário configurar antes de usar.</p>
+      <p><strong>Fila offline:</strong> sem internet, o comprovante é salvo localmente e processado quando a conexão voltar.</p>
     </div>
   </section>
 
   <!-- GASTOS FIXOS -->
   <section id="fixos">
     <h2><span class="icon">🔄</span> Gastos Fixos</h2>
-    <p>Gastos que se repetem todo mês — como aluguel, internet ou academia. Os gastos fixos <strong>não são descontados automaticamente</strong>. Eles ficam como <strong>Pendentes</strong> até você confirmar o pagamento.</p>
+    <p>Gastos recorrentes mensais — aluguel, internet, academia. Os fixos ficam <strong>Pendentes</strong> até você confirmar o pagamento.</p>
 
-    <h3>Adicionar um gasto fixo</h3>
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
         <h4>Toque em "📅 Fixos"</h4>
-        <p>Na seção de adição manual da tela principal.</p>
+        <p>Informe nome, valor, categoria e dia de vencimento.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <h4>Preencha os dados</h4>
-        <p>Nome, valor, categoria e dia de vencimento. Todos os campos são obrigatórios — o app avisa se algum estiver vazio.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-content">
-        <h4>Toque em "Salvar"</h4>
-        <p>O fixo aparece na aba <strong>Fixas</strong> com status <span class="status-badge status-pendente">PENDENTE</span></p>
-      </div>
-    </div>
-
-    <h3>Status de pagamento</h3>
-    <div class="card">
-      <div class="status-row">
-        <span class="status-badge status-pendente">PENDENTE</span>
-        <span class="status-badge status-pago">✓ PAGO</span>
+        <h4>Status de pagamento</h4>
+        <div class="status-row">
+          <span class="status-badge status-pendente">PENDENTE</span>
+          <span class="status-badge status-pago">✓ PAGO</span>
+        </div>
       </div>
     </div>
 
     <div class="tip">
       <span class="tip-icon">🤖</span>
-      <p><strong>Detecção automática:</strong> Quando o app detecta um pagamento parecido com um fixo pendente, sugere o vínculo na tela principal.</p>
-    </div>
-
-    <h3>Avisos de vencimento</h3>
-    <div class="card card-orange">
-      <p>Configure em <strong>Configurações → Alertas → Vencimento de fixos</strong> para receber notificações de 1 a 7 dias antes do vencimento.</p>
+      <p><strong>Detecção automática:</strong> quando o app detecta um pagamento parecido com um fixo pendente, sugere o vínculo e renomeia a transação para o nome do fixo.</p>
     </div>
   </section>
 
-  <!-- ORÇAMENTO -->
-  <section id="orcamento">
-    <h2><span class="icon">📉</span> Controle de Orçamento <span class="badge-new">Novo</span></h2>
+  <!-- ASSISTENTE IA -->
+  <section id="chat">
+    <h2><span class="icon">💬</span> Assistente Financeiro IA <span class="badge-new">Novo</span></h2>
+    <p>Toque em <strong>💬</strong> na tela principal. O assistente tem acesso completo aos seus dados do período — todas as transações, categorias e histórico dos últimos meses.</p>
 
-    <h3>Alerta de percentual</h3>
-    <div class="card card-orange">
-      <p>Configure em <strong>Configurações → Alertas → Alerta de orçamento</strong>. Você recebe uma notificação quando atingir o percentual definido (padrão: 80%).</p>
+    <h3>O que pode perguntar</h3>
+    <div class="card card-blue">
+      <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
+        <li>Qual foi meu maior gasto este mês?</li>
+        <li>Quanto gastei com delivery?</li>
+        <li>Estou gastando mais que no mês passado?</li>
+        <li>Se continuar assim, fecho o mês no azul?</li>
+        <li>Quais são meus 3 maiores gastos?</li>
+        <li>Tem algum gasto que se repete muito?</li>
+      </ul>
     </div>
 
-    <h3>Alerta de estouro</h3>
-    <div class="card card-red">
-      <p>Quando os gastos ultrapassam o orçamento total, o app:</p>
-      <ul style="margin: 8px 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
-        <li>Muda o card azul para vermelho escuro</li>
-        <li>Troca "Restam R$ X" por <strong style="color:#EF5350">"Estourou R$ X"</strong></li>
-        <li>Envia uma notificação push (apenas uma vez por período)</li>
-        <li>Mostra o valor de estouro no dialog de fechar período</li>
-      </ul>
+    <h3>Histórico de conversa</h3>
+    <div class="card">
+      <p>O chat salva as últimas 10 mensagens automaticamente. Ao reabrir, a conversa continua de onde parou. Para reiniciar, <strong>segure o botão de voltar ←</strong>.</p>
+    </div>
+
+    <h3>Conselho ao fechar período</h3>
+    <div class="card card-green">
+      <p>Ao fechar um mês, o assistente analisa os dados e exibe um parágrafo personalizado com o que foi bem, o que melhorar e uma sugestão prática.</p>
     </div>
   </section>
 
   <!-- PADRÕES -->
   <section id="padroes">
-    <h2><span class="icon">📈</span> Tela de Padrões <span class="badge-new">Novo</span></h2>
-    <p>Acesse tocando no botão <strong>📈</strong> ao lado de "Fechar período" na tela principal. Mostra análises do seu comportamento financeiro calculadas localmente — sem internet.</p>
+    <h2><span class="icon">📈</span> Tela de Padrões</h2>
+    <p>Toque em <strong>📊</strong> na tela principal. Análises calculadas localmente — sem internet.</p>
 
     <h3>Previsão até o fim do mês</h3>
     <div class="card card-blue">
-      <p>Com base no ritmo de gastos atual, o app calcula:</p>
-      <ul style="margin: 8px 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
-        <li><strong>Gasto médio por dia</strong> e dias restantes no mês</li>
-        <li><strong>Saldo projetado</strong> no dia 31 mantendo o ritmo atual</li>
-        <li><strong>Cenário real</strong> — saldo após descontar os fixos ainda pendentes</li>
+      <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
+        <li>Gasto médio por dia e dias restantes</li>
+        <li>Saldo projetado mantendo o ritmo atual</li>
+        <li>Cenário real descontando fixos pendentes</li>
       </ul>
     </div>
 
     <h3>Comportamento detectado</h3>
     <div class="card">
-      <p>O app compara os gastos do mês atual com o mês anterior e detecta automaticamente variações relevantes, como:</p>
-      <ul style="margin: 8px 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
-        <li>Categorias que subiram ou caíram mais de 15%</li>
-        <li>Gastos após 22h (delivery noturno)</li>
-        <li>Dia da semana mais caro com gráfico de barras</li>
-      </ul>
+      <p>Compara o mês atual com o anterior e detecta variações por categoria, gastos após 22h e dia da semana mais caro.</p>
     </div>
 
-    <h3>Modo "Dinheiro sumindo" <span class="badge-new">Novo</span></h3>
+    <h3>Modo "Dinheiro sumindo"</h3>
     <div class="card card-orange">
-      <p>Agrupa todos os gastos abaixo de R$ 50 e mostra o impacto real no orçamento, separado por tipo:</p>
+      <p>Agrupa gastos abaixo de R$ 50 e mostra o impacto real. Toque em qualquer grupo para ver cada transação individual.</p>
       <ul style="margin: 8px 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
         <li>🛵 Delivery</li>
         <li>☕ Cafés e padarias</li>
         <li>💸 Pix pequenos</li>
         <li>🏷 Taxas e tarifas</li>
       </ul>
-      <p style="margin-top:10px">Cada linha mostra quantas vezes e quanto somou. A cor varia conforme o impacto no orçamento.</p>
+    </div>
+
+    <h3>Estimativa de impostos <span class="badge-new">Novo</span></h3>
+    <div class="card card-purple">
+      <p>Calcula o ICMS e ISS estimados embutidos nos seus gastos do mês, por categoria, usando as alíquotas do seu estado. Configure o estado em <strong>Configurações → Financeiro</strong>.</p>
+      <p style="margin-bottom:0;font-size:13px;color:#666">⚠️ São estimativas baseadas em alíquotas médias. Valores reais podem variar.</p>
     </div>
   </section>
 
   <!-- PERÍODOS -->
   <section id="periodos">
     <h2><span class="icon">📅</span> Períodos</h2>
-    <p>O app organiza seus gastos em <strong>períodos mensais</strong>. Cada período tem um nome (ex: Maio 2026), data de início e um orçamento.</p>
 
-    <h3>Fechar um período</h3>
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <h4>Toque em "Fechar período"</h4>
-        <p>Na tela principal. Se houver estouro de orçamento, o valor é exibido em vermelho no dialog.</p>
+        <h4>Toque em "Fechar"</h4>
+        <p>Na tela principal. O assistente IA analisa o mês e exibe um conselho personalizado.</p>
       </div>
     </div>
     <div class="step">
@@ -423,15 +467,15 @@
     <div class="step">
       <div class="step-num">3</div>
       <div class="step-content">
-        <h4>Escolha o destino do saldo restante</h4>
-        <p><strong>Somar ao próximo</strong> — o saldo vira saldo inicial do próximo mês.<br><strong>Guardar/Investir</strong> — registrado como poupança, próximo mês começa zerado.</p>
+        <h4>Escolha o destino do saldo</h4>
+        <p><strong>Somar ao próximo</strong> — saldo vira saldo inicial.<br><strong>Guardar/Investir</strong> — registrado como poupança, próximo mês começa zerado.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
         <h4>Escolha o que fazer com os fixos</h4>
-        <p><strong>Manter</strong> — fixos são mantidos com status resetado para Pendente.<br><strong>Remover</strong> — próximo período começa sem fixos.</p>
+        <p><strong>Manter</strong> — fixos resetam para Pendente.<br><strong>Remover</strong> — próximo período começa sem fixos.</p>
       </div>
     </div>
 
@@ -444,15 +488,14 @@
   <!-- RESUMO -->
   <section id="resumo">
     <h2><span class="icon">📊</span> Tela de Resumo</h2>
-    <p>Acesse tocando em <strong>"Ver resumo"</strong> dentro do card azul.</p>
+    <p>Toque em <strong>"Ver resumo"</strong> no card azul.</p>
 
     <div class="card card-blue">
       <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2.2;">
         <li><strong>Maior gasto</strong> — valor e categoria</li>
-        <li><strong>Média por dia</strong> — gasto médio diário</li>
-        <li><strong>Total de transações</strong></li>
-        <li><strong>Categoria top</strong> — maior fatia do orçamento</li>
-        <li><strong>Gráfico de pizza</strong> — gastos por categoria</li>
+        <li><strong>Média por dia</strong> — considerando todos os gastos incluindo crédito</li>
+        <li><strong>Top categoria</strong> — maior fatia do mês</li>
+        <li><strong>Gráfico de pizza</strong> — com fatia separada para crédito</li>
         <li><strong>Gráfico de barras</strong> — top categorias</li>
       </ul>
     </div>
@@ -460,16 +503,8 @@
 
   <!-- HISTÓRICO -->
   <section id="historico">
-    <h2><span class="icon">📈</span> Histórico de Períodos</h2>
-    <p>Acesse tocando em <strong>"Histórico"</strong> na tela principal.</p>
-
-    <div class="card">
-      <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
-        <li>Lista de todos os períodos fechados</li>
-        <li>Total gasto e % do orçamento em cada período</li>
-        <li>Gráfico de linha com evolução e linha de tendência</li>
-      </ul>
-    </div>
+    <h2><span class="icon">🗂</span> Histórico de Períodos</h2>
+    <p>Toque em <strong>"Histórico"</strong> na tela principal. Lista todos os meses fechados com total gasto, % do orçamento e gráfico de evolução.</p>
 
     <div class="warning">
       <span style="font-size:18px">⚠️</span>
@@ -480,31 +515,36 @@
   <!-- CONFIGURAÇÕES -->
   <section id="configuracoes">
     <h2><span class="icon">⚙️</span> Configurações</h2>
-    <p>Toque no ícone ⚙️ na tela principal. As configurações são salvas automaticamente — toggles e sliders salvam na hora, campos de texto salvam ao sair da tela.</p>
+    <p>Toque no ícone ⚙️ na tela principal. As configurações são salvas automaticamente.</p>
 
-    <h3>🔒 Segurança</h3>
+    <h3>💰 Financeiro</h3>
     <div class="card">
-      <p><strong>Entrada segura</strong> — biometria, PIN ou padrão ao abrir o app. Desativado por padrão.</p>
+      <p><strong>Orçamento mensal</strong> — valor de referência para o mês.<br><strong>Estado</strong> — selecione seu estado para cálculo de estimativas de ICMS e ISS.</p>
     </div>
 
-    <h3>💰 Orçamento e IA</h3>
+    <h3>💳 Cartões de Crédito</h3>
+    <div class="card card-blue">
+      <p>Cadastre seus cartões com nome, dia de fechamento e dia de vencimento. O app calcula automaticamente em qual fatura cada compra no crédito se encaixa.<br><br>Exemplo: Nubank fecha dia 3, vence dia 26.</p>
+    </div>
+
+    <h3>🔔 Notificações</h3>
     <div class="card">
-      <p><strong>Orçamento mensal</strong> — valor de referência para o mês.<br><strong>API Key Gemini</strong> — habilita categorização inteligente. Obtenha em <strong>aistudio.google.com</strong>.</p>
+      <p><strong>Alerta de orçamento</strong> — notifica ao atingir o percentual configurado (50–95%, padrão: 80%).<br><strong>Vencimento de fixos</strong> — avisa de 1 a 14 dias antes do vencimento.<br><strong>Lembrete diário</strong> — notificação no horário e dias da semana configurados para revisar seus gastos.</p>
     </div>
 
-    <h3>🔔 Alertas</h3>
-    <div class="card card-orange">
-      <p><strong>Alerta de orçamento</strong> — notifica ao atingir o percentual configurado (50–95%, padrão: 80%).<br><strong>Vencimento de fixos</strong> — avisa de 1 a 7 dias antes do vencimento.</p>
-    </div>
-
-    <h3>⏰ Lembrete diário <span class="badge-new">Novo</span></h3>
+    <h3>🔒 Privacidade</h3>
     <div class="card">
-      <p>Receba uma notificação diária para revisar seus gastos. Configure o horário e os dias da semana em que deseja ser lembrado.</p>
+      <p><strong>Entrada segura</strong> — biometria, PIN ou padrão ao abrir o app.</p>
     </div>
 
-    <h3>ℹ️ Informações</h3>
+    <h3>🗂 Dados</h3>
+    <div class="card">
+      <p><strong>Exportar backup</strong> — gera arquivo JSON com todos os dados.<br><strong>Importar backup</strong> — restaura dados de um backup anterior.</p>
+    </div>
+
+    <h3>ℹ️ Sobre o servidor</h3>
     <div class="card card-green">
-      <p>Seus dados ficam <strong>apenas no seu dispositivo</strong>. O app não coleta, transmite nem vende nenhuma informação pessoal.</p>
+      <p>O Meu Bolso usa um servidor centralizado para análise de IA — você não precisa configurar nenhuma chave de API. As notificações bancárias são enviadas ao servidor apenas para identificar valor, estabelecimento e categoria — sem armazenamento.</p>
     </div>
   </section>
 
@@ -512,11 +552,10 @@
   <section id="backup">
     <h2><span class="icon">💾</span> Backup e Restauração</h2>
 
-    <h3>Exportar backup</h3>
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <h4>Configurações → Exportar</h4>
+        <h4>Configurações → Dados → Exportar backup</h4>
         <p>Gera o arquivo <code>meubolso_backup_YYYYMMDD_HHmm.json</code> com todos os dados.</p>
       </div>
     </div>
@@ -528,25 +567,9 @@
       </div>
     </div>
 
-    <h3>Importar backup</h3>
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-content">
-        <h4>Configurações → Importar</h4>
-        <p>Uma confirmação é solicitada antes de prosseguir.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-content">
-        <h4>Selecione o arquivo .json</h4>
-        <p>O app exibe um resumo dos dados restaurados e pede para reiniciar.</p>
-      </div>
-    </div>
-
     <div class="warning">
       <span style="font-size:18px">⚠️</span>
-      <p>Importar substitui <strong>todos os dados atuais</strong>. Exporte antes de importar se quiser preservar o histórico atual.</p>
+      <p>Importar substitui <strong>todos os dados atuais</strong>. Exporte antes se quiser preservar o histórico.</p>
     </div>
 
     <div class="tip">
@@ -563,12 +586,12 @@
       <tr><th>Permissão</th><th>Para que serve</th><th>Obrigatória?</th></tr>
       <tr><td>Acesso a notificações</td><td>Ler notificações bancárias</td><td>✅ Sim</td></tr>
       <tr><td>Câmera</td><td>Fotografar comprovantes</td><td>Opcional</td></tr>
-      <tr><td>Notificações do app</td><td>Alertas de orçamento, vencimento e lembrete diário</td><td>Recomendada</td></tr>
-      <tr><td>Internet</td><td>API Gemini para análise por IA</td><td>Opcional</td></tr>
-      <tr><td>Iniciar com o sistema</td><td>Reativar o monitoramento após reinicialização</td><td>Recomendada</td></tr>
+      <tr><td>Notificações do app</td><td>Alertas, vencimento e lembrete diário</td><td>Recomendada</td></tr>
+      <tr><td>Internet</td><td>IA para análise de notificações e comprovantes</td><td>Recomendada</td></tr>
+      <tr><td>Iniciar com o sistema</td><td>Reativar monitoramento após reinicialização</td><td>Recomendada</td></tr>
     </table>
 
-    <h3>Configurações especiais para Samsung (Galaxy / One UI)</h3>
+    <h3>Samsung (Galaxy / One UI)</h3>
     <div class="card card-orange">
       <div class="step">
         <div class="step-num">1</div>
@@ -580,15 +603,8 @@
       <div class="step">
         <div class="step-num">2</div>
         <div class="step-content">
-          <h4>Permitir atividade em segundo plano</h4>
-          <p>Configurações → Cuidados do dispositivo → Bateria → Limites de uso em segundo plano → remova o Meu Bolso da lista</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-content">
-          <h4>Acesso a notificações</h4>
-          <p>Configurações → Notificações → Acesso especial → Meu Bolso → <strong>Ativar</strong></p>
+          <h4>Atividade em segundo plano</h4>
+          <p>Configurações → Cuidados do dispositivo → Bateria → Limites de uso → remova o Meu Bolso</p>
         </div>
       </div>
     </div>
@@ -600,47 +616,42 @@
 
     <div class="card" style="margin-bottom:12px">
       <h3 style="margin-top:0">O app não está detectando meus gastos. O que fazer?</h3>
-      <p>Verifique se o acesso a notificações está ativo. Em Samsung, desative a otimização de bateria para o Meu Bolso e ative a permissão de atividade em segundo plano (veja a seção Permissões).</p>
+      <p>Verifique o acesso a notificações. Em Samsung, desative a otimização de bateria para o Meu Bolso (veja a seção Permissões).</p>
     </div>
 
     <div class="card" style="margin-bottom:12px">
-      <h3 style="margin-top:0">Meu banco é suportado?</h3>
-      <p>O app suporta mais de 40 bancos e carteiras digitais — incluindo Caixa, Sicredi, Sicoob, Nubank, Itaú, Bradesco, BB, Santander, Inter, C6, PicPay, Neon, Pan, BTG, XP, Banrisul, PagBank, Mercado Pago e muitos outros.</p>
+      <h3 style="margin-top:0">Por que a compra no crédito não desconta do mês?</h3>
+      <p>Porque o dinheiro ainda não saiu da sua conta. O crédito aparece em "Compromissos no crédito" — é informativo. O saldo real do mês reflete só o que efetivamente saiu (débito e Pix).</p>
     </div>
 
     <div class="card" style="margin-bottom:12px">
-      <h3 style="margin-top:0">Como funciona o comprovante?</h3>
-      <p>Toque em "📷 Comprovante", escolha câmera, galeria ou PDF. O app envia a imagem para o Google Gemini que extrai valor, data, local e categoria. Você confirma antes de registrar. Sem internet, o comprovante fica na fila e é processado quando a conexão voltar.</p>
+      <h3 style="margin-top:0">O Santander não mostra se foi débito ou crédito. O que fazer?</h3>
+      <p>A notificação vai aparecer com borda laranja e botões <strong>Débito</strong> / <strong>Crédito</strong> direto no painel. Basta tocar uma vez — sem precisar abrir o app.</p>
     </div>
 
     <div class="card" style="margin-bottom:12px">
-      <h3 style="margin-top:0">O que é a tela de Padrões?</h3>
-      <p>É uma análise do seu comportamento financeiro calculada localmente, sem internet. Mostra previsão de saldo até o fim do mês, variações por categoria vs mês anterior, dia da semana mais caro e o modo "dinheiro sumindo" — que agrupa micro gastos abaixo de R$ 50.</p>
+      <h3 style="margin-top:0">O assistente IA é seguro?</h3>
+      <p>Sim. Os dados são enviados ao servidor do Meu Bolso (não a terceiros) apenas para processar a resposta. Nenhuma informação é armazenada no servidor.</p>
     </div>
 
     <div class="card" style="margin-bottom:12px">
-      <h3 style="margin-top:0">O que acontece quando estouro o orçamento?</h3>
-      <p>O card azul fica vermelho, o texto "Restam" vira "Estourou R$ X" e uma notificação push é enviada uma única vez naquele período. Você ainda pode continuar registrando gastos normalmente.</p>
+      <h3 style="margin-top:0">Como funciona a estimativa de impostos?</h3>
+      <p>Na tela de Padrões, o app calcula o ICMS e ISS estimados embutidos nos seus gastos usando as alíquotas do seu estado. São estimativas — os valores reais podem variar conforme o produto e a situação fiscal.</p>
     </div>
 
     <div class="card" style="margin-bottom:12px">
-      <h3 style="margin-top:0">Por que o gasto fixo não desconta automaticamente?</h3>
-      <p>O Meu Bolso reflete o que você <strong>efetivamente pagou</strong>. Os fixos ficam Pendentes até você confirmar — manualmente ou pelo matching automático com uma notificação bancária.</p>
+      <h3 style="margin-top:0">O app funciona sem internet?</h3>
+      <p>Sim! Detecção básica, adição manual, fixos e padrões funcionam offline. A internet é usada para IA (análise de notificações e comprovantes) e o assistente de chat.</p>
     </div>
 
     <div class="card" style="margin-bottom:12px">
-      <h3 style="margin-top:0">Como configurar o lembrete diário?</h3>
-      <p>Vá em Configurações → Lembrete diário, ative o toggle, escolha o horário e os dias da semana. As configurações são salvas automaticamente ao sair da tela.</p>
-    </div>
-
-    <div class="card" style="margin-bottom:12px">
-      <h3 style="margin-top:0">Meus dados são seguros?</h3>
-      <p>Todos os dados ficam no seu dispositivo. O app só envia o texto da notificação ou a imagem do comprovante para a API do Gemini — e apenas se você configurar a API Key.</p>
+      <h3 style="margin-top:0">Preciso configurar uma API Key?</h3>
+      <p>Não. O Meu Bolso usa um servidor centralizado — você não precisa de nenhuma chave de API. Tudo funciona automaticamente.</p>
     </div>
 
     <div class="card">
-      <h3 style="margin-top:0">O app funciona sem internet?</h3>
-      <p>Sim! Detecção automática, adição manual, fixos e padrões funcionam 100% offline. A internet só é usada para a análise por IA (Gemini) e para processar comprovantes na fila.</p>
+      <h3 style="margin-top:0">Como reiniciar o chat com o assistente?</h3>
+      <p>Na tela do chat, <strong>segure o botão de voltar ←</strong> por um momento. A conversa é apagada e começa do zero.</p>
     </div>
   </section>
 
