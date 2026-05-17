@@ -27,6 +27,7 @@
   .card-orange { border-left: 4px solid #FB8C00; }
   .card-red { border-left: 4px solid #EF5350; }
   .card-purple { border-left: 4px solid #7B1FA2; }
+  .card-teal { border-left: 4px solid #00897B; }
   .step { display: flex; gap: 16px; margin-bottom: 20px; align-items: flex-start; }
   .step-num { background: #1976D2; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
   .step-content h4 { font-size: 15px; font-weight: 600; color: #E6EDF3; margin-bottom: 4px; }
@@ -48,11 +49,18 @@
   .status-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; }
   .status-pago { background: #1A2E7D32; color: #5DCAA5; border: 1px solid #2E7D3240; }
   .status-pendente { color: #EF9F27; border: 1px solid #E6510040; background: transparent; }
+  .status-andamento { color: #1976D2; border: 1px solid #1976D240; background: #1976D215; }
+  .status-encerrada { color: #8B949E; border: 1px solid #30363D; background: transparent; }
   .match-card { background: #1C2128; border: 1px solid #1976D2; border-radius: 12px; padding: 16px; margin: 16px 0; }
   .match-card p { margin: 0 0 12px; font-size: 14px; }
   .match-btns { display: flex; gap: 8px; justify-content: flex-end; }
   .btn-sim { background: #1976D2; color: white; border: none; border-radius: 8px; padding: 6px 16px; font-size: 13px; font-weight: 600; }
   .btn-nao { background: transparent; color: #8B949E; border: 1px solid #30363D; border-radius: 8px; padding: 6px 16px; font-size: 13px; }
+  .goal-bar { background: #21262D; border-radius: 4px; height: 8px; margin: 8px 0 4px; overflow: hidden; }
+  .goal-bar-fill { height: 100%; border-radius: 4px; }
+  .goal-bar-ok { background: #43A047; }
+  .goal-bar-warn { background: #FB8C00; }
+  .goal-bar-over { background: #EF5350; }
   table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
   th { background: #1C2128; color: #E6EDF3; padding: 10px 14px; text-align: left; border-bottom: 1px solid #30363D; }
   td { padding: 10px 14px; border-bottom: 1px solid #21262D; color: #8B949E; }
@@ -80,11 +88,15 @@
 <nav>
   <a href="#inicio">Início</a>
   <a href="#tela-principal">Tela Principal</a>
+  <a href="#ferramentas">Ferramentas</a>
   <a href="#credito">Cartão de Crédito</a>
   <a href="#transacoes">Transações</a>
   <a href="#comprovantes">Comprovantes</a>
   <a href="#fixos">Gastos Fixos</a>
+  <a href="#metas">Metas</a>
+  <a href="#viagens">Viagens</a>
   <a href="#chat">Assistente IA</a>
+  <a href="#insights">AI Insights</a>
   <a href="#padroes">Padrões</a>
   <a href="#periodos">Períodos</a>
   <a href="#resumo">Resumo</a>
@@ -146,7 +158,8 @@
       <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
         <li><strong>Gastos de [Mês Ano]</strong> — nome do período atual</li>
         <li><strong>Valor total</strong> — soma de débito e Pix (crédito não entra aqui)</li>
-        <li><strong>Restam R$ X</strong> — saldo do orçamento</li>
+        <li><strong>Restam R$ X</strong> — saldo disponível considerando orçamento + entradas recebidas</li>
+        <li><strong>Barra de progresso</strong> — mostra quanto do orçamento total (orçamento + entradas) foi consumido; chega a 100% exatamente quando "Restam" zera</li>
         <li><strong>Fixas / Pontuais / Entradas</strong> — subtotais por tipo</li>
         <li><strong>💳 Compromissos no crédito</strong> — fatura atual e próxima (se houver cartão cadastrado)</li>
         <li><strong>N transações · Ver resumo</strong></li>
@@ -186,6 +199,11 @@
       <p style="margin-top:8px;margin-bottom:0">Ao confirmar, a transação é renomeada para o nome do gasto fixo automaticamente.</p>
     </div>
 
+    <h3>Card de AI Insights</h3>
+    <div class="card card-teal">
+      <p>Quando disponível, um card de análise inteligente aparece logo acima das transações com observações sobre seus padrões de gasto — como queda em uma categoria ou comportamento fora do comum. Toque no card para ver a análise completa. Veja a seção <a href="#insights" style="color:#1976D2">AI Insights</a> para configurar a frequência.</p>
+    </div>
+
     <h3>Botões de navegação</h3>
     <div class="card">
       <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
@@ -193,17 +211,23 @@
         <li><strong>Fechar</strong> — encerra o mês e inicia novo período</li>
         <li><strong>📊</strong> — tela de Padrões financeiros</li>
         <li><strong>💬</strong> — Assistente financeiro IA</li>
+        <li><strong>🔧</strong> — Ferramentas (Simulador, Assinaturas, Viagens…)</li>
       </ul>
     </div>
 
     <h3>Adição manual</h3>
     <div class="card">
       <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
-        <li><strong>↓ Gasto</strong> — registra uma saída com valor, local e data</li>
+        <li><strong>↓ Gasto</strong> — registra uma saída com valor, local, categoria e data</li>
         <li><strong>↑ Entrada</strong> — registra uma receita</li>
         <li><strong>📅 Fixos</strong> — cadastra um gasto fixo recorrente</li>
         <li><strong>📷 Comprovante</strong> — escaneia via câmera, galeria ou PDF</li>
       </ul>
+    </div>
+
+    <h3>Seleção de categoria ao adicionar gasto</h3>
+    <div class="card card-blue">
+      <p>Ao abrir o diálogo de <strong>↓ Gasto</strong> ou <strong>📅 Fixos</strong>, há um campo de categoria com dropdown. O app sugere automaticamente a categoria conforme você digita o nome do local (ex: digitar "iFood" já preenche 🛵 Delivery). Você pode manter a sugestão ou escolher outra manualmente.</p>
     </div>
 
     <h3>Abas de filtro</h3>
@@ -212,9 +236,24 @@
     </div>
   </section>
 
+  <!-- FERRAMENTAS -->
+  <section id="ferramentas">
+    <h2><span class="icon">🔧</span> Ferramentas <span class="badge-new">Novo</span></h2>
+    <p>Toque no botão <strong>🔧</strong> na tela principal para abrir o painel de ferramentas.</p>
+
+    <div class="card card-blue">
+      <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2.2;">
+        <li><strong>📊 Simulador</strong> — simula cenários de gasto para o restante do mês</li>
+        <li><strong>🔔 Assinaturas</strong> — detecta e lista serviços recorrentes identificados nas transações</li>
+        <li><strong>✈️ Viagens</strong> — gerencia viagens e vincula gastos a elas</li>
+        <li><strong>🎯 Metas</strong> — define e acompanha limites por categoria</li>
+      </ul>
+    </div>
+  </section>
+
   <!-- CARTÃO DE CRÉDITO -->
   <section id="credito">
-    <h2><span class="icon">💳</span> Cartão de Crédito <span class="badge-new">Novo</span></h2>
+    <h2><span class="icon">💳</span> Cartão de Crédito</h2>
     <p>O Meu Bolso diferencia gastos no crédito de débito/Pix. Compras no crédito <strong>não reduzem o saldo do mês atual</strong> — aparecem como compromisso futuro.</p>
 
     <h3>Como funciona</h3>
@@ -294,7 +333,7 @@
     <h3>Outras ações</h3>
     <div class="card">
       <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
-        <li><strong>Toque na categoria colorida</strong> — altera a categoria</li>
+        <li><strong>Toque na categoria colorida</strong> — altera a categoria (o app verifica imediatamente se há meta estourada na nova categoria)</li>
         <li><strong>Toque longo</strong> — adiciona ou edita comentário na transação</li>
         <li><strong>Toque em ⚠️</strong> — define se foi débito ou crédito (quando não identificado)</li>
       </ul>
@@ -361,7 +400,7 @@
       <div class="step-num">1</div>
       <div class="step-content">
         <h4>Toque em "📅 Fixos"</h4>
-        <p>Informe nome, valor, categoria e dia de vencimento.</p>
+        <p>Informe nome, valor, dia de vencimento e escolha a categoria no dropdown. O app sugere a categoria automaticamente conforme você digita o nome (ex: "Netflix" → 🎬 Entretenimento).</p>
       </div>
     </div>
     <div class="step">
@@ -381,10 +420,118 @@
     </div>
   </section>
 
+  <!-- METAS DE CATEGORIA -->
+  <section id="metas">
+    <h2><span class="icon">🎯</span> Metas de Categoria <span class="badge-new">Novo</span></h2>
+    <p>Defina um limite de gasto por categoria. O app avisa quando você está se aproximando ou ultrapassando o limite — inclusive na hora exata em que um novo gasto é registrado.</p>
+
+    <h3>Como criar uma meta</h3>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Ferramentas 🔧 → Metas</h4>
+        <p>Toque no botão + para criar uma nova meta.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Escolha a categoria e o limite</h4>
+        <p>Selecione a categoria (ex: 🛵 Delivery) e informe o valor máximo mensal (ex: R$ 300).</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Acompanhe o progresso</h4>
+        <p>Na tela de Metas, cada categoria exibe uma barra colorida com o percentual consumido.</p>
+      </div>
+    </div>
+
+    <h3>Alertas de meta</h3>
+    <div class="card card-orange">
+      <p>O app envia notificações em três momentos:</p>
+      <ul style="margin: 8px 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
+        <li><strong>80% do limite</strong> — aviso antecipado: "🛵 Delivery em 82% da meta — R$ 246 de R$ 300"</li>
+        <li><strong>100% atingido</strong> — alerta de estouro: "⚠️ Meta de 🛵 Delivery estourada!"</li>
+        <li><strong>Novo gasto em categoria já estourada</strong> — notificação de alta prioridade imediata, mostrando o valor ultrapassado: "Meta estourada — novo gasto: +R$ 45,00 (ultrapassada em R$ 78,00)"</li>
+      </ul>
+    </div>
+
+    <h3>Barra de progresso por categoria</h3>
+    <div class="card">
+      <div style="margin-bottom:12px">
+        <p style="margin-bottom:4px;font-size:13px;color:#E6EDF3">🛵 Delivery &nbsp;<span style="color:#43A047;font-size:12px">R$ 120 / R$ 300</span></p>
+        <div class="goal-bar"><div class="goal-bar-fill goal-bar-ok" style="width:40%"></div></div>
+      </div>
+      <div style="margin-bottom:12px">
+        <p style="margin-bottom:4px;font-size:13px;color:#E6EDF3">🍔 Alimentação &nbsp;<span style="color:#FB8C00;font-size:12px">R$ 260 / R$ 300</span></p>
+        <div class="goal-bar"><div class="goal-bar-fill goal-bar-warn" style="width:87%"></div></div>
+      </div>
+      <div>
+        <p style="margin-bottom:4px;font-size:13px;color:#E6EDF3">💊 Saúde &nbsp;<span style="color:#EF5350;font-size:12px">R$ 420 / R$ 300</span></p>
+        <div class="goal-bar"><div class="goal-bar-fill goal-bar-over" style="width:100%"></div></div>
+      </div>
+      <p style="margin-top:12px;margin-bottom:0;font-size:13px">Verde = dentro do limite · Laranja = acima de 80% · Vermelho = estourado</p>
+    </div>
+
+    <div class="tip">
+      <span class="tip-icon">💡</span>
+      <p>Os alertas de meta podem ser ativados ou desativados individualmente em <strong>Configurações → Alertas → Metas de categoria</strong>.</p>
+    </div>
+  </section>
+
+  <!-- VIAGENS -->
+  <section id="viagens">
+    <h2><span class="icon">✈️</span> Viagens <span class="badge-new">Novo</span></h2>
+    <p>Agrupe gastos de uma viagem para ver exatamente quanto você gastou no total — separado dos seus gastos do cotidiano.</p>
+
+    <h3>Criar uma viagem</h3>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Ferramentas 🔧 → Viagens → +</h4>
+        <p>Informe o nome da viagem (ex: "Viagem para SP"), destino, data de início e, opcionalmente, data de fim e descrição.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Status automático</h4>
+        <div class="status-row">
+          <span class="status-badge status-andamento">Em andamento</span>
+          <span class="status-badge status-encerrada">Encerrada</span>
+        </div>
+        <p style="margin-top:8px">Uma viagem com data de fim no passado é automaticamente marcada como Encerrada.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Vincule gastos à viagem</h4>
+        <p>Abra a viagem e toque em <strong>"+ Vincular gastos"</strong>. O app lista as transações recentes sem vínculo para você selecionar. Também é possível desvincular individualmente.</p>
+      </div>
+    </div>
+
+    <h3>Detalhes da viagem</h3>
+    <div class="card card-blue">
+      <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
+        <li>Total gasto e número de transações vinculadas</li>
+        <li>Lista de todos os gastos com valor e data</li>
+        <li>Botão de excluir — desvincula os gastos e remove a viagem</li>
+      </ul>
+    </div>
+
+    <h3>Integração com o Assistente IA</h3>
+    <div class="card card-teal">
+      <p>O assistente de chat tem acesso às suas viagens cadastradas. Você pode perguntar diretamente: <em>"Quanto gastei na viagem para SP?"</em> ou <em>"Quais viagens tenho abertas?"</em></p>
+    </div>
+  </section>
+
   <!-- ASSISTENTE IA -->
   <section id="chat">
-    <h2><span class="icon">💬</span> Assistente Financeiro IA <span class="badge-new">Novo</span></h2>
-    <p>Toque em <strong>💬</strong> na tela principal. O assistente tem acesso completo aos seus dados do período — todas as transações, categorias e histórico dos últimos meses.</p>
+    <h2><span class="icon">💬</span> Assistente Financeiro IA</h2>
+    <p>Toque em <strong>💬</strong> na tela principal. O assistente tem acesso completo aos seus dados do período — todas as transações, categorias, histórico dos últimos meses e viagens cadastradas.</p>
 
     <h3>O que pode perguntar</h3>
     <div class="card card-blue">
@@ -395,6 +542,8 @@
         <li>Se continuar assim, fecho o mês no azul?</li>
         <li>Quais são meus 3 maiores gastos?</li>
         <li>Tem algum gasto que se repete muito?</li>
+        <li>Quanto gastei na minha viagem para [destino]?</li>
+        <li>Quais viagens tenho em andamento?</li>
       </ul>
     </div>
 
@@ -406,6 +555,36 @@
     <h3>Conselho ao fechar período</h3>
     <div class="card card-green">
       <p>Ao fechar um mês, o assistente analisa os dados e exibe um parágrafo personalizado com o que foi bem, o que melhorar e uma sugestão prática.</p>
+    </div>
+  </section>
+
+  <!-- AI INSIGHTS -->
+  <section id="insights">
+    <h2><span class="icon">🤖</span> AI Insights <span class="badge-new">Novo</span></h2>
+    <p>Análises periódicas geradas automaticamente com base nas suas transações e histórico. Aparecem como um card na tela principal — sem precisar perguntar nada.</p>
+
+    <h3>Como funciona</h3>
+    <div class="card card-teal">
+      <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
+        <li>O app analisa suas transações recentes em segundo plano</li>
+        <li>Um card aparece na tela principal com um resumo de 1–2 linhas</li>
+        <li>Toque no card para ver a <strong>análise completa</strong> em um painel deslizante</li>
+        <li>A análise cobre tendências, variações por categoria, comportamentos detectados e sugestões práticas</li>
+      </ul>
+    </div>
+
+    <h3>Configurar frequência</h3>
+    <div class="card">
+      <p>Em <strong>Configurações → AI Insights</strong>:</p>
+      <ul style="margin: 8px 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
+        <li><strong>Ativar/Desativar</strong> — toggle para ligar ou desligar os insights</li>
+        <li><strong>Frequência</strong> — a cada 3, 7 ou 14 dias</li>
+      </ul>
+    </div>
+
+    <div class="tip">
+      <span class="tip-icon">💡</span>
+      <p>O insight é gerado automaticamente no período configurado. Se quiser uma análise agora, basta perguntar ao <a href="#chat" style="color:#1976D2">Assistente IA</a> diretamente.</p>
     </div>
   </section>
 
@@ -439,7 +618,7 @@
       </ul>
     </div>
 
-    <h3>Estimativa de impostos <span class="badge-new">Novo</span></h3>
+    <h3>Estimativa de impostos</h3>
     <div class="card card-purple">
       <p>Calcula o ICMS e ISS estimados embutidos nos seus gastos do mês, por categoria, usando as alíquotas do seu estado. Configure o estado em <strong>Configurações → Financeiro</strong>.</p>
       <p style="margin-bottom:0;font-size:13px;color:#666">⚠️ São estimativas baseadas em alíquotas médias. Valores reais podem variar.</p>
@@ -527,9 +706,21 @@
       <p>Cadastre seus cartões com nome, dia de fechamento e dia de vencimento. O app calcula automaticamente em qual fatura cada compra no crédito se encaixa.<br><br>Exemplo: Nubank fecha dia 3, vence dia 26.</p>
     </div>
 
-    <h3>🔔 Notificações</h3>
+    <h3>🔔 Notificações e Alertas</h3>
     <div class="card">
-      <p><strong>Alerta de orçamento</strong> — notifica ao atingir o percentual configurado (50–95%, padrão: 80%).<br><strong>Vencimento de fixos</strong> — avisa de 1 a 14 dias antes do vencimento.<br><strong>Lembrete diário</strong> — notificação no horário e dias da semana configurados para revisar seus gastos.</p>
+      <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
+        <li><strong>Alerta de orçamento</strong> — notifica ao atingir o percentual configurado (50–95%, padrão: 80%)</li>
+        <li><strong>Vencimento de fixos</strong> — avisa de 1 a 14 dias antes do vencimento</li>
+        <li><strong>Lembrete diário</strong> — notificação no horário e dias da semana configurados</li>
+        <li><strong>Metas de categoria — 80%</strong> — aviso ao se aproximar do limite</li>
+        <li><strong>Metas de categoria — estouro</strong> — alerta quando o limite é ultrapassado</li>
+        <li><strong>Gasto alto</strong> — notificação quando uma transação ultrapassa o valor definido</li>
+      </ul>
+    </div>
+
+    <h3>🤖 AI Insights</h3>
+    <div class="card card-teal">
+      <p><strong>Ativar Insights</strong> — liga ou desliga a análise periódica automática.<br><strong>Frequência</strong> — a cada 3, 7 ou 14 dias.</p>
     </div>
 
     <h3>🔒 Privacidade</h3>
@@ -539,7 +730,7 @@
 
     <h3>🗂 Dados</h3>
     <div class="card">
-      <p><strong>Exportar backup</strong> — gera arquivo JSON com todos os dados.<br><strong>Importar backup</strong> — restaura dados de um backup anterior.</p>
+      <p><strong>Exportar backup</strong> — gera arquivo JSON com todos os dados.<br><strong>Importar backup</strong> — restaura dados de um backup anterior.<br><strong>Apagar todos os dados</strong> — remove tudo permanentemente (irreversível).</p>
     </div>
 
     <h3>ℹ️ Sobre o servidor</h3>
@@ -586,7 +777,7 @@
       <tr><th>Permissão</th><th>Para que serve</th><th>Obrigatória?</th></tr>
       <tr><td>Acesso a notificações</td><td>Ler notificações bancárias</td><td>✅ Sim</td></tr>
       <tr><td>Câmera</td><td>Fotografar comprovantes</td><td>Opcional</td></tr>
-      <tr><td>Notificações do app</td><td>Alertas, vencimento e lembrete diário</td><td>Recomendada</td></tr>
+      <tr><td>Notificações do app</td><td>Alertas, metas, vencimento e lembrete diário</td><td>Recomendada</td></tr>
       <tr><td>Internet</td><td>IA para análise de notificações e comprovantes</td><td>Recomendada</td></tr>
       <tr><td>Iniciar com o sistema</td><td>Reativar monitoramento após reinicialização</td><td>Recomendada</td></tr>
     </table>
@@ -630,6 +821,21 @@
     </div>
 
     <div class="card" style="margin-bottom:12px">
+      <h3 style="margin-top:0">A barra de progresso não bate com o "Restam". Por quê?</h3>
+      <p>A barra usa o mesmo cálculo do "Restam" — leva em conta o orçamento <strong>mais</strong> as entradas recebidas no período. Quanto mais você recebeu, mais a barra "estica". Ela chega a 100% no mesmo momento em que "Restam" zera.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:12px">
+      <h3 style="margin-top:0">Como funciona a notificação de meta estourada?</h3>
+      <p>Há dois momentos: quando o total da categoria passa de 100% do limite (uma vez), e toda vez que você adiciona um novo gasto em uma categoria que já está estourada. Nesse segundo caso, a notificação é de alta prioridade e aparece imediatamente com o valor que ultrapassou o limite.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:12px">
+      <h3 style="margin-top:0">Posso vincular um gasto a uma viagem depois que ele foi registrado?</h3>
+      <p>Sim. Abra a viagem em Ferramentas → Viagens, toque em <strong>"+ Vincular gastos"</strong> e selecione as transações que fazem parte da viagem. Você também pode desvincular individualmente a qualquer momento.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:12px">
       <h3 style="margin-top:0">O assistente IA é seguro?</h3>
       <p>Sim. Os dados são enviados ao servidor do Meu Bolso (não a terceiros) apenas para processar a resposta. Nenhuma informação é armazenada no servidor.</p>
     </div>
@@ -641,7 +847,7 @@
 
     <div class="card" style="margin-bottom:12px">
       <h3 style="margin-top:0">O app funciona sem internet?</h3>
-      <p>Sim! Detecção básica, adição manual, fixos e padrões funcionam offline. A internet é usada para IA (análise de notificações e comprovantes) e o assistente de chat.</p>
+      <p>Sim! Detecção básica, adição manual, fixos, metas, viagens e padrões funcionam offline. A internet é usada para IA (análise de notificações, comprovantes e AI Insights) e o assistente de chat.</p>
     </div>
 
     <div class="card" style="margin-bottom:12px">
