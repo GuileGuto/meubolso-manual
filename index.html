@@ -17,7 +17,7 @@
   nav a:hover { color: #1976D2; border-bottom-color: #1976D2; }
   .container { max-width: 860px; margin: 0 auto; padding: 32px 24px; }
   section { margin-bottom: 48px; }
-  h2 { font-size: 24px; font-weight: 700; color: #E6EDF3; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #30363D; display: flex; align-items: center; gap: 10px; }
+  h2 { font-size: 24px; font-weight: 700; color: #E6EDF3; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #30363D; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
   h2 .icon { font-size: 22px; }
   h3 { font-size: 17px; font-weight: 600; color: #1976D2; margin: 24px 0 10px; }
   p { color: #8B949E; margin-bottom: 12px; font-size: 15px; }
@@ -28,6 +28,7 @@
   .card-red { border-left: 4px solid #EF5350; }
   .card-purple { border-left: 4px solid #7B1FA2; }
   .card-teal { border-left: 4px solid #00897B; }
+  .card-gold { border-left: 4px solid #FFB300; background: #1C1A0F; border-color: #30363D; border-left-color: #FFB300; }
   .step { display: flex; gap: 16px; margin-bottom: 20px; align-items: flex-start; }
   .step-num { background: #1976D2; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
   .step-content h4 { font-size: 15px; font-weight: 600; color: #E6EDF3; margin-bottom: 4px; }
@@ -38,6 +39,8 @@
   .warning { background: #1C2128; border: 1px solid #FB8C00; border-radius: 8px; padding: 14px 18px; margin: 16px 0; display: flex; gap: 12px; align-items: flex-start; }
   .warning p { margin: 0; font-size: 14px; color: #8B949E; }
   .badge-new { background: #1976D2; color: white; font-size: 11px; padding: 1px 8px; border-radius: 10px; margin-left: 6px; vertical-align: middle; }
+  .badge-premium { background: #2A1F00; color: #FFB300; font-size: 11px; padding: 2px 10px; border-radius: 10px; margin-left: 6px; vertical-align: middle; border: 1px solid #FFB30040; font-weight: 700; }
+  .badge-free { background: #0A2010; color: #43A047; font-size: 11px; padding: 2px 10px; border-radius: 10px; margin-left: 6px; vertical-align: middle; border: 1px solid #43A04740; font-weight: 700; }
   .badge-blue { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; margin-left: 8px; background: #1565C020; color: #1976D2; border: 1px solid #1976D220; }
   .swipe-demo { display: flex; gap: 8px; margin: 16px 0; }
   .swipe-card { flex: 1; border-radius: 10px; padding: 14px; text-align: center; }
@@ -61,6 +64,15 @@
   .goal-bar-ok { background: #43A047; }
   .goal-bar-warn { background: #FB8C00; }
   .goal-bar-over { background: #EF5350; }
+  .tools-section-label { font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #8B949E; margin: 0 0 10px; padding: 0; }
+  .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+  .tool-item { background: #1C2128; border: 1px solid #30363D; border-radius: 10px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; }
+  .tool-item.premium { border-color: #FFB30030; background: #1C1A0F; }
+  .tool-icon { font-size: 22px; flex-shrink: 0; }
+  .tool-info { flex: 1; min-width: 0; }
+  .tool-name { font-size: 14px; font-weight: 600; color: #E6EDF3; }
+  .tool-desc { font-size: 12px; color: #8B949E; margin: 0; }
+  .tool-lock { font-size: 14px; margin-left: auto; flex-shrink: 0; }
   table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
   th { background: #1C2128; color: #E6EDF3; padding: 10px 14px; text-align: left; border-bottom: 1px solid #30363D; }
   td { padding: 10px 14px; border-bottom: 1px solid #21262D; color: #8B949E; }
@@ -73,28 +85,29 @@
     h2 { font-size: 20px; }
     .swipe-demo { flex-direction: column; }
     .status-row { flex-direction: column; }
+    .tools-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
-
 <header>
   <div class="logo">💰</div>
   <h1>Meu Bolso</h1>
   <p>Manual do Usuário — Controle Financeiro Inteligente</p>
   <span class="beta">β Versão Beta</span>
 </header>
-
 <nav>
   <a href="#inicio">Início</a>
   <a href="#tela-principal">Tela Principal</a>
   <a href="#ferramentas">Ferramentas</a>
+  <a href="#premium">Premium</a>
   <a href="#credito">Cartão de Crédito</a>
   <a href="#transacoes">Transações</a>
   <a href="#comprovantes">Comprovantes</a>
   <a href="#fixos">Gastos Fixos</a>
   <a href="#metas">Metas</a>
   <a href="#viagens">Viagens</a>
+  <a href="#patrimonio">Patrimônio</a>
   <a href="#chat">Assistente IA</a>
   <a href="#insights">AI Insights</a>
   <a href="#padroes">Padrões</a>
@@ -106,14 +119,12 @@
   <a href="#permissoes">Permissões</a>
   <a href="#faq">FAQ</a>
 </nav>
-
 <div class="container">
 
   <!-- INÍCIO -->
   <section id="inicio">
     <h2><span class="icon">🚀</span> Primeiros passos</h2>
     <p>O <strong>Meu Bolso</strong> detecta automaticamente seus gastos lendo as notificações dos aplicativos bancários — sem precisar digitar nada. A IA analisa cada notificação e categoriza o gasto automaticamente.</p>
-
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
@@ -142,7 +153,6 @@
         <p>Quando receber uma notificação de compra, débito ou Pix, o Meu Bolso registra automaticamente e categoriza com IA.</p>
       </div>
     </div>
-
     <div class="tip">
       <span class="tip-icon">💡</span>
       <p><strong>Samsung (Galaxy):</strong> Vá em Configurações → Apps → Meu Bolso → Bateria → <strong>Sem restrições</strong>. No Xiaomi/MIUI, ative também a <strong>Inicialização automática</strong>.</p>
@@ -168,7 +178,17 @@
 
     <h3>Ocultar valores</h3>
     <div class="card">
-      <p>Toque no ícone de <strong>olho 👁</strong> no card azul para ocultar todos os valores — total, fixas, pontuais, entradas e faturas do crédito. Útil em lugares públicos.</p>
+      <p>Toque no ícone de <strong>olho 👁</strong> no card azul para ocultar todos os valores — total, fixas, pontuais, entradas e faturas do crédito. Útil em lugares públicos. O botão de ocultar do <strong>card "Minhas Contas"</strong> está sincronizado: ao tocar em qualquer um dos dois olhos, ambos os cards ocultam ou exibem os valores ao mesmo tempo.</p>
+    </div>
+
+    <h3>Card "Minhas Contas" — Saldo das contas bancárias</h3>
+    <div class="card card-blue">
+      <p>Logo abaixo do card principal, um segundo card exibe o <strong>saldo atual de cada conta bancária cadastrada</strong> — calculado automaticamente somando o saldo inicial ao histórico de movimentações do período.</p>
+      <ul style="margin: 8px 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
+        <li>Cada conta aparece com nome e saldo individual</li>
+        <li>O total consolidado de todas as contas é exibido no rodapé do card</li>
+        <li>Toque no ícone de <strong>olho 👁</strong> no canto do card para ocultar os saldos independentemente — ou use o olho do card principal para ocultar tudo de uma vez</li>
+      </ul>
     </div>
 
     <h3>Alerta de estouro de orçamento</h3>
@@ -207,11 +227,12 @@
     <h3>Botões de navegação</h3>
     <div class="card">
       <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
-        <li><strong>Histórico</strong> — todos os meses anteriores</li>
+        <li><strong>Histórico</strong> — todos os meses anteriores (gratuito)</li>
         <li><strong>Fechar</strong> — encerra o mês e inicia novo período</li>
-        <li><strong>📊</strong> — tela de Padrões financeiros</li>
-        <li><strong>💬</strong> — Assistente financeiro IA</li>
-        <li><strong>🔧</strong> — Ferramentas (Simulador, Assinaturas, Viagens…)</li>
+        <li><strong>Ver resumo</strong> — resumo visual do período atual (gratuito)</li>
+        <li><strong>📊</strong> — tela de Padrões financeiros (gratuito)</li>
+        <li><strong>💬</strong> — Assistente financeiro IA (premium)</li>
+        <li><strong>🔧</strong> — Ferramentas — abre o painel com recursos gratuitos e premium</li>
       </ul>
     </div>
 
@@ -238,16 +259,116 @@
 
   <!-- FERRAMENTAS -->
   <section id="ferramentas">
-    <h2><span class="icon">🔧</span> Ferramentas <span class="badge-new">Novo</span></h2>
-    <p>Toque no botão <strong>🔧</strong> na tela principal para abrir o painel de ferramentas.</p>
+    <h2><span class="icon">🔧</span> Ferramentas</h2>
+    <p>Toque no botão <strong>🔧</strong> na tela principal para abrir o painel de ferramentas. Os recursos estão divididos em duas categorias: <strong>Gratuito</strong> (disponível para todos) e <strong>Premium</strong> (requer assinatura).</p>
+
+    <h3>✅ Gratuito — disponível para todos</h3>
+    <div class="tools-grid">
+      <div class="tool-item">
+        <div class="tool-icon">📊</div>
+        <div class="tool-info">
+          <div class="tool-name">Padrões</div>
+          <p class="tool-desc">Análises e previsões locais</p>
+        </div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-icon">🧮</div>
+        <div class="tool-info">
+          <div class="tool-name">Simulador</div>
+          <p class="tool-desc">Simula cenários de gasto</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>🔒 Premium — recursos avançados</h3>
+    <div class="tools-grid">
+      <div class="tool-item premium">
+        <div class="tool-icon">💬</div>
+        <div class="tool-info">
+          <div class="tool-name">Chat IA</div>
+          <p class="tool-desc">Assistente financeiro inteligente</p>
+        </div>
+        <div class="tool-lock">🔒</div>
+      </div>
+      <div class="tool-item premium">
+        <div class="tool-icon">🎯</div>
+        <div class="tool-info">
+          <div class="tool-name">Metas e alertas</div>
+          <p class="tool-desc">Limites por categoria</p>
+        </div>
+        <div class="tool-lock">🔒</div>
+      </div>
+      <div class="tool-item premium">
+        <div class="tool-icon">✈️</div>
+        <div class="tool-info">
+          <div class="tool-name">Viagens</div>
+          <p class="tool-desc">Gastos por viagem</p>
+        </div>
+        <div class="tool-lock">🔒</div>
+      </div>
+      <div class="tool-item premium">
+        <div class="tool-icon">🛒</div>
+        <div class="tool-info">
+          <div class="tool-name">Compras</div>
+          <p class="tool-desc">Lista de compras inteligente</p>
+        </div>
+        <div class="tool-lock">🔒</div>
+      </div>
+      <div class="tool-item premium">
+        <div class="tool-icon">📆</div>
+        <div class="tool-info">
+          <div class="tool-name">Parcelamentos</div>
+          <p class="tool-desc">Controle de parcelas</p>
+        </div>
+        <div class="tool-lock">🔒</div>
+      </div>
+      <div class="tool-item premium">
+        <div class="tool-icon">🏦</div>
+        <div class="tool-info">
+          <div class="tool-name">Patrimônio</div>
+          <p class="tool-desc">Bens e ativos</p>
+        </div>
+        <div class="tool-lock">🔒</div>
+      </div>
+    </div>
+
+    <div class="tip">
+      <span class="tip-icon">💡</span>
+      <p>Ao tentar acessar um recurso premium sem assinatura, o app exibe uma mensagem explicando o que está incluso no plano Premium. O <strong>Ver resumo</strong> e o <strong>Histórico</strong> na tela principal também são gratuitos.</p>
+    </div>
+  </section>
+
+  <!-- PLANO PREMIUM -->
+  <section id="premium">
+    <h2><span class="icon">⭐</span> Plano Premium</h2>
+    <p>O Meu Bolso oferece um plano gratuito robusto e um plano Premium com recursos avançados de análise, organização e inteligência financeira.</p>
+
+    <h3>O que está incluso no Premium</h3>
+    <div class="card card-gold">
+      <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2.2;">
+        <li>💬 <strong>Chat IA personalizado</strong> — assistente financeiro com contexto completo dos seus dados</li>
+        <li>🎯 <strong>Metas e alertas</strong> — limites por categoria com notificações inteligentes</li>
+        <li>✈️ <strong>Viagens</strong> — agrupe gastos por viagem e veja o total separado</li>
+        <li>🛒 <strong>Compras</strong> — lista de compras integrada ao controle financeiro</li>
+        <li>📆 <strong>Parcelamentos</strong> — controle e projeção de parcelas futuras</li>
+        <li>🏦 <strong>Patrimônio</strong> — cadastro de bens, ativos e consulta FIPE</li>
+      </ul>
+    </div>
+
+    <h3>Recursos sempre gratuitos</h3>
+    <div class="card card-green">
+      <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2.2;">
+        <li>📊 <strong>Padrões financeiros</strong> — análises e previsões calculadas localmente</li>
+        <li>🧮 <strong>Simulador</strong> — simula cenários de gasto para o restante do mês</li>
+        <li>📈 <strong>Ver resumo</strong> — gráficos e totais do período atual</li>
+        <li>🗂 <strong>Histórico</strong> — todos os meses fechados</li>
+        <li>Detecção automática de gastos por notificação</li>
+        <li>Leitura de comprovantes, gastos fixos, cartão de crédito e backup</li>
+      </ul>
+    </div>
 
     <div class="card card-blue">
-      <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2.2;">
-        <li><strong>📊 Simulador</strong> — simula cenários de gasto para o restante do mês</li>
-        <li><strong>🔔 Assinaturas</strong> — detecta e lista serviços recorrentes identificados nas transações</li>
-        <li><strong>✈️ Viagens</strong> — gerencia viagens e vincula gastos a elas</li>
-        <li><strong>🎯 Metas</strong> — define e acompanha limites por categoria</li>
-      </ul>
+      <p style="margin:0"><strong>Acesso antecipado (Beta):</strong> durante o período de testes, todos os recursos premium estão liberados automaticamente para os beta testers. A integração com o Google Play para assinaturas será ativada na versão final do app.</p>
     </div>
   </section>
 
@@ -363,7 +484,6 @@
   <section id="comprovantes">
     <h2><span class="icon">📷</span> Leitura de Comprovantes</h2>
     <p>Fotografe ou selecione um comprovante e o app extrai automaticamente o valor, data, estabelecimento e categoria usando IA.</p>
-
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
@@ -385,7 +505,6 @@
         <p>O app mostra o que foi extraído para você conferir antes de registrar.</p>
       </div>
     </div>
-
     <div class="card card-blue">
       <p><strong>Fila offline:</strong> sem internet, o comprovante é salvo localmente e processado quando a conexão voltar.</p>
     </div>
@@ -395,7 +514,6 @@
   <section id="fixos">
     <h2><span class="icon">🔄</span> Gastos Fixos</h2>
     <p>Gastos recorrentes mensais — aluguel, internet, academia. Os fixos ficam <strong>Pendentes</strong> até você confirmar o pagamento.</p>
-
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
@@ -413,7 +531,6 @@
         </div>
       </div>
     </div>
-
     <div class="tip">
       <span class="tip-icon">🤖</span>
       <p><strong>Detecção automática:</strong> quando o app detecta um pagamento parecido com um fixo pendente, sugere o vínculo e renomeia a transação para o nome do fixo.</p>
@@ -422,7 +539,7 @@
 
   <!-- METAS DE CATEGORIA -->
   <section id="metas">
-    <h2><span class="icon">🎯</span> Metas de Categoria <span class="badge-new">Novo</span></h2>
+    <h2><span class="icon">🎯</span> Metas e Alertas <span class="badge-premium">PREMIUM</span></h2>
     <p>Defina um limite de gasto por categoria. O app avisa quando você está se aproximando ou ultrapassando o limite — inclusive na hora exata em que um novo gasto é registrado.</p>
 
     <h3>Como criar uma meta</h3>
@@ -474,7 +591,6 @@
       </div>
       <p style="margin-top:12px;margin-bottom:0;font-size:13px">Verde = dentro do limite · Laranja = acima de 80% · Vermelho = estourado</p>
     </div>
-
     <div class="tip">
       <span class="tip-icon">💡</span>
       <p>Os alertas de meta podem ser ativados ou desativados individualmente em <strong>Configurações → Alertas → Metas de categoria</strong>.</p>
@@ -483,7 +599,7 @@
 
   <!-- VIAGENS -->
   <section id="viagens">
-    <h2><span class="icon">✈️</span> Viagens <span class="badge-new">Novo</span></h2>
+    <h2><span class="icon">✈️</span> Viagens <span class="badge-premium">PREMIUM</span></h2>
     <p>Agrupe gastos de uma viagem para ver exatamente quanto você gastou no total — separado dos seus gastos do cotidiano.</p>
 
     <h3>Criar uma viagem</h3>
@@ -528,9 +644,45 @@
     </div>
   </section>
 
+  <!-- PATRIMÔNIO -->
+  <section id="patrimonio">
+    <h2><span class="icon">🏦</span> Patrimônio <span class="badge-premium">PREMIUM</span></h2>
+    <p>Registre e acompanhe seus bens e ativos — imóveis, veículos, investimentos e outros patrimônios. Tenha uma visão completa do que você possui além das movimentações mensais.</p>
+
+    <h3>Como acessar</h3>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Ferramentas 🔧 → Patrimônio</h4>
+        <p>Toque no botão <strong>+</strong> para cadastrar um novo bem.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Informe os dados do bem</h4>
+        <p>Nome, categoria (imóvel, veículo, investimento, etc.) e valor estimado atual.</p>
+      </div>
+    </div>
+
+    <h3>Visão consolidada</h3>
+    <div class="card card-blue">
+      <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
+        <li>Lista de todos os bens cadastrados com valor individual</li>
+        <li>Valor total do patrimônio no rodapé</li>
+        <li>Toque no ícone de olho para ocultar os valores na tela</li>
+      </ul>
+    </div>
+
+    <div class="tip">
+      <span class="tip-icon">💡</span>
+      <p>Mantenha os valores atualizados periodicamente para ter uma fotografia real do seu patrimônio líquido.</p>
+    </div>
+  </section>
+
   <!-- ASSISTENTE IA -->
   <section id="chat">
-    <h2><span class="icon">💬</span> Assistente Financeiro IA</h2>
+    <h2><span class="icon">💬</span> Assistente Financeiro IA <span class="badge-premium">PREMIUM</span></h2>
     <p>Toque em <strong>💬</strong> na tela principal. O assistente tem acesso completo aos seus dados do período — todas as transações, categorias, histórico dos últimos meses e viagens cadastradas.</p>
 
     <h3>O que pode perguntar</h3>
@@ -581,7 +733,6 @@
         <li><strong>Frequência</strong> — a cada 3, 7 ou 14 dias</li>
       </ul>
     </div>
-
     <div class="tip">
       <span class="tip-icon">💡</span>
       <p>O insight é gerado automaticamente no período configurado. Se quiser uma análise agora, basta perguntar ao <a href="#chat" style="color:#1976D2">Assistente IA</a> diretamente.</p>
@@ -590,7 +741,7 @@
 
   <!-- PADRÕES -->
   <section id="padroes">
-    <h2><span class="icon">📈</span> Tela de Padrões</h2>
+    <h2><span class="icon">📈</span> Tela de Padrões <span class="badge-free">GRATUITO</span></h2>
     <p>Toque em <strong>📊</strong> na tela principal. Análises calculadas localmente — sem internet.</p>
 
     <h3>Previsão até o fim do mês</h3>
@@ -627,7 +778,8 @@
 
   <!-- PERÍODOS -->
   <section id="periodos">
-    <h2><span class="icon">📅</span> Períodos</h2>
+    <h2><span class="icon">📅</span> Períodos — Fechar o mês</h2>
+    <p>Ao fechar o mês, o app encerra o período atual, atualiza os saldos de todas as contas e abre um novo período automaticamente.</p>
 
     <div class="step">
       <div class="step-num">1</div>
@@ -647,28 +799,37 @@
       <div class="step-num">3</div>
       <div class="step-content">
         <h4>Escolha o destino do saldo</h4>
-        <p><strong>Somar ao próximo</strong> — saldo vira saldo inicial.<br><strong>Guardar/Investir</strong> — registrado como poupança, próximo mês começa zerado.</p>
+        <p><strong>Somar ao próximo</strong> — saldo vira saldo inicial do novo período.<br><strong>Guardar/Investir</strong> — registrado como poupança, próximo mês começa zerado.<br><strong>Ignorar</strong> — saldo encerrado sem transferência.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">4</div>
       <div class="step-content">
         <h4>Escolha o que fazer com os fixos</h4>
-        <p><strong>Manter</strong> — fixos resetam para Pendente.<br><strong>Remover</strong> — próximo período começa sem fixos.</p>
+        <p><strong>Manter</strong> — fixos resetam para Pendente no próximo mês.<br><strong>Remover</strong> — próximo período começa sem fixos.</p>
       </div>
+    </div>
+
+    <h3>O que acontece com as contas bancárias ao fechar</h3>
+    <div class="card card-blue">
+      <p>No momento do fechamento, o app faz um <strong>snapshot automático</strong> do saldo de cada conta bancária cadastrada:</p>
+      <ul style="margin: 8px 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
+        <li>O saldo atual de cada conta (saldo inicial + movimentações do período) é calculado e <strong>salvo como novo saldo inicial</strong></li>
+        <li>Isso garante que o saldo das contas seja preservado corretamente no novo período — mesmo que transações antigas sejam removidas no futuro</li>
+        <li>Você não precisa fazer nada — o processo é totalmente automático</li>
+      </ul>
     </div>
 
     <div class="tip">
       <span class="tip-icon">💡</span>
-      <p>Escolha <strong>Manter</strong> para não precisar recadastrar seus fixos todo mês.</p>
+      <p>Escolha <strong>Manter</strong> nos fixos para não precisar recadastrar seus gastos fixos todo mês.</p>
     </div>
   </section>
 
   <!-- RESUMO -->
   <section id="resumo">
-    <h2><span class="icon">📊</span> Tela de Resumo</h2>
+    <h2><span class="icon">📊</span> Tela de Resumo <span class="badge-free">GRATUITO</span></h2>
     <p>Toque em <strong>"Ver resumo"</strong> no card azul.</p>
-
     <div class="card card-blue">
       <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2.2;">
         <li><strong>Maior gasto</strong> — valor e categoria</li>
@@ -682,9 +843,8 @@
 
   <!-- HISTÓRICO -->
   <section id="historico">
-    <h2><span class="icon">🗂</span> Histórico de Períodos</h2>
+    <h2><span class="icon">🗂</span> Histórico de Períodos <span class="badge-free">GRATUITO</span></h2>
     <p>Toque em <strong>"Histórico"</strong> na tela principal. Lista todos os meses fechados com total gasto, % do orçamento e gráfico de evolução.</p>
-
     <div class="warning">
       <span style="font-size:18px">⚠️</span>
       <p>Ao excluir um período, todos os gastos registrados nele são removidos permanentemente.</p>
@@ -742,7 +902,6 @@
   <!-- BACKUP -->
   <section id="backup">
     <h2><span class="icon">💾</span> Backup e Restauração</h2>
-
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
@@ -757,12 +916,10 @@
         <p>Google Drive, WhatsApp, e-mail ou qualquer app de armazenamento.</p>
       </div>
     </div>
-
     <div class="warning">
       <span style="font-size:18px">⚠️</span>
       <p>Importar substitui <strong>todos os dados atuais</strong>. Exporte antes se quiser preservar o histórico.</p>
     </div>
-
     <div class="tip">
       <span class="tip-icon">💡</span>
       <p>Faça backup regularmente — especialmente antes de trocar de celular.</p>
@@ -772,7 +929,6 @@
   <!-- PERMISSÕES -->
   <section id="permissoes">
     <h2><span class="icon">🔐</span> Permissões necessárias</h2>
-
     <table>
       <tr><th>Permissão</th><th>Para que serve</th><th>Obrigatória?</th></tr>
       <tr><td>Acesso a notificações</td><td>Ler notificações bancárias</td><td>✅ Sim</td></tr>
@@ -836,6 +992,21 @@
     </div>
 
     <div class="card" style="margin-bottom:12px">
+      <h3 style="margin-top:0">O que acontece com o saldo das contas bancárias ao fechar o mês?</h3>
+      <p>Ao fechar o período, o app calcula automaticamente o saldo atual de cada conta (saldo inicial + movimentações do mês) e salva esse valor como o novo saldo inicial. Assim, o próximo período começa com os saldos corretos — sem precisar atualizar manualmente.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:12px">
+      <h3 style="margin-top:0">Estou testando o app mas o recurso aparece como premium. O que fazer?</h3>
+      <p>Durante o período de beta, todos os recursos premium estão liberados automaticamente para testadores. Se você viu a tela de bloqueio, entre em contato para verificar se seu acesso está ativo. A assinatura oficial via Google Play será ativada na versão final do app.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:12px">
+      <h3 style="margin-top:0">O olho de ocultar valores funciona em todos os cards?</h3>
+      <p>Sim. O botão de olho do card principal (azul) e o do card "Minhas Contas" estão sincronizados — tocar em qualquer um oculta ou exibe os valores dos dois cards ao mesmo tempo.</p>
+    </div>
+
+    <div class="card" style="margin-bottom:12px">
       <h3 style="margin-top:0">O assistente IA é seguro?</h3>
       <p>Sim. Os dados são enviados ao servidor do Meu Bolso (não a terceiros) apenas para processar a resposta. Nenhuma informação é armazenada no servidor.</p>
     </div>
@@ -847,7 +1018,7 @@
 
     <div class="card" style="margin-bottom:12px">
       <h3 style="margin-top:0">O app funciona sem internet?</h3>
-      <p>Sim! Detecção básica, adição manual, fixos, metas, viagens e padrões funcionam offline. A internet é usada para IA (análise de notificações, comprovantes e AI Insights) e o assistente de chat.</p>
+      <p>Sim! Detecção básica, adição manual, fixos, metas, viagens, padrões e patrimônio funcionam offline. A internet é usada para IA (análise de notificações, comprovantes e AI Insights) e o assistente de chat.</p>
     </div>
 
     <div class="card" style="margin-bottom:12px">
@@ -862,12 +1033,10 @@
   </section>
 
 </div>
-
 <footer>
   <p>Meu Bolso — Versão Beta | Desenvolvido com ❤️</p>
   <p><a href="https://guileguto.github.io/meubolso-privacy/">Política de Privacidade</a></p>
   <p style="margin-top:16px; font-size:12px; color:#484F58">Este app está em desenvolvimento ativo. Funcionalidades podem mudar nas próximas versões.</p>
 </footer>
-
 </body>
 </html>
