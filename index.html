@@ -94,7 +94,7 @@
   <div class="logo">💰</div>
   <h1>Meu Bolso</h1>
   <p>Manual do Usuário — Controle Financeiro Inteligente</p>
-  <span class="beta">β Versão Beta</span>
+  <span class="beta">v1.1.7</span>
 </header>
 <nav>
   <a href="#inicio">Início</a>
@@ -115,6 +115,7 @@
   <a href="#resumo">Resumo</a>
   <a href="#historico">Histórico</a>
   <a href="#configuracoes">Configurações</a>
+  <a href="#notificacoes">Notificações</a>
   <a href="#backup">Backup</a>
   <a href="#permissoes">Permissões</a>
   <a href="#faq">FAQ</a>
@@ -278,6 +279,13 @@
           <p class="tool-desc">Simula cenários de gasto</p>
         </div>
       </div>
+      <div class="tool-item">
+        <div class="tool-icon">🔔</div>
+        <div class="tool-info">
+          <div class="tool-name">Notificações</div>
+          <p class="tool-desc">Lembretes, análises e alertas</p>
+        </div>
+      </div>
     </div>
 
     <h3>🔒 Premium — recursos avançados</h3>
@@ -367,8 +375,8 @@
       </ul>
     </div>
 
-    <div class="card card-blue">
-      <p style="margin:0"><strong>Acesso antecipado (Beta):</strong> durante o período de testes, todos os recursos premium estão liberados automaticamente para os beta testers. A integração com o Google Play para assinaturas será ativada na versão final do app.</p>
+    <div class="card card-gold">
+      <p style="margin:0;font-size:15px"><strong>⭐ Meu Bolso Premium</strong> — <strong style="color:#FFB300">R$ 9,90/mês</strong> com <strong>7 dias grátis</strong>. Assine pela própria Play Store — cancele quando quiser. Nenhuma cobrança durante o período de teste.</p>
     </div>
   </section>
 
@@ -856,6 +864,13 @@
     <h2><span class="icon">⚙️</span> Configurações</h2>
     <p>Toque no ícone ⚙️ na tela principal. As configurações são salvas automaticamente.</p>
 
+    <h3>🌙 Aparência</h3>
+    <div class="card">
+      <p><strong>Tema do aplicativo</strong> — escolha entre três opções:<br>
+      <strong>Auto</strong> — segue o tema do sistema (padrão).<br>
+      <strong>Escuro</strong> — fundo escuro independente do sistema.<br>
+      <strong>Claro</strong> — fundo claro independente do sistema.</p>
+    </div>
     <h3>💰 Financeiro</h3>
     <div class="card">
       <p><strong>Orçamento mensal</strong> — valor de referência para o mês.<br><strong>Estado</strong> — selecione seu estado para cálculo de estimativas de ICMS e ISS.</p>
@@ -866,21 +881,18 @@
       <p>Cadastre seus cartões com nome, dia de fechamento e dia de vencimento. O app calcula automaticamente em qual fatura cada compra no crédito se encaixa.<br><br>Exemplo: Nubank fecha dia 3, vence dia 26.</p>
     </div>
 
-    <h3>🔔 Notificações e Alertas</h3>
+    <h3>🔔 Notificações</h3>
     <div class="card">
-      <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
-        <li><strong>Alerta de orçamento</strong> — notifica ao atingir o percentual configurado (50–95%, padrão: 80%)</li>
-        <li><strong>Vencimento de fixos</strong> — avisa de 1 a 14 dias antes do vencimento</li>
-        <li><strong>Lembrete diário</strong> — notificação no horário e dias da semana configurados</li>
-        <li><strong>Metas de categoria — 80%</strong> — aviso ao se aproximar do limite</li>
-        <li><strong>Metas de categoria — estouro</strong> — alerta quando o limite é ultrapassado</li>
-        <li><strong>Gasto alto</strong> — notificação quando uma transação ultrapassa o valor definido</li>
-      </ul>
+      <p><strong>Notif. em segundo plano</strong> — controla a visibilidade da notificação persistente do serviço de detecção. Você pode ocultá-la sem perder funcionalidade — toque em "Configurar" para ir às configurações do canal no Android.</p>
+    </div>
+    <div class="tip">
+      <span class="tip-icon">💡</span>
+      <p>As configurações completas de notificações (vencimento de fixos, lembrete diário, análise IA e resumo semanal) ficam em <strong>Ferramentas 🔧 → Notificações</strong>.</p>
     </div>
 
     <h3>🤖 AI Insights</h3>
     <div class="card card-teal">
-      <p><strong>Ativar Insights</strong> — liga ou desliga a análise periódica automática.<br><strong>Frequência</strong> — a cada 3, 7 ou 14 dias.</p>
+      <p>Acesse em <strong>Ferramentas 🔧 → Notificações → Análise automática dos gastos</strong>.<br><strong>Ativar Insights</strong> — liga ou desliga a análise periódica automática.<br><strong>Frequência</strong> — Semanal, Quinzenal ou Mensal.</p>
     </div>
 
     <h3>🔒 Privacidade</h3>
@@ -923,6 +935,32 @@
     <div class="tip">
       <span class="tip-icon">💡</span>
       <p>Faça backup regularmente — especialmente antes de trocar de celular.</p>
+    </div>
+  </section>
+
+  <!-- NOTIFICAÇÕES -->
+  <section id="notificacoes">
+    <h2><span class="icon">🔔</span> Notificações e Análises</h2>
+    <p>Acesse em <strong>Ferramentas 🔧 → Notificações</strong>. Todas as configurações de alertas e análises automáticas estão reunidas aqui.</p>
+    <h3>Vencimento de fixos</h3>
+    <div class="card card-orange">
+      <p>Ative para receber um aviso antes das contas fixas vencerem. Configure com quantos dias de antecedência (1 a 14 dias) o lembrete deve ser enviado.</p>
+    </div>
+    <h3>Lembrete de revisão</h3>
+    <div class="card card-blue">
+      <p>Receba um lembrete diário para revisar seus gastos. Configure o horário e os dias da semana (ex: seg–sex às 19h).</p>
+    </div>
+    <h3>Análise automática dos gastos</h3>
+    <div class="card card-teal">
+      <p>A IA analisa seus gastos periodicamente e envia um card com insights direto na tela principal. Configure:</p>
+      <ul style="margin: 8px 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
+        <li><strong>Frequência</strong> — Semanal (escolha o dia), Quinzenal ou Mensal</li>
+        <li><strong>Dia da análise semanal</strong> — qual dia da semana receber o insight (quando frequência = semanal)</li>
+      </ul>
+    </div>
+    <h3>Resumo toda sexta-feira</h3>
+    <div class="card card-green">
+      <p>Ative para receber um resumo comparativo semanal toda sexta-feira às 18h — comparando a semana atual com as anteriores.</p>
     </div>
   </section>
 
@@ -998,7 +1036,7 @@
 
     <div class="card" style="margin-bottom:12px">
       <h3 style="margin-top:0">Estou testando o app mas o recurso aparece como premium. O que fazer?</h3>
-      <p>Durante o período de beta, todos os recursos premium estão liberados automaticamente para testadores. Se você viu a tela de bloqueio, entre em contato para verificar se seu acesso está ativo. A assinatura oficial via Google Play será ativada na versão final do app.</p>
+      <p>Para assinar, tente acessar qualquer recurso Premium — o app exibirá o paywall com o botão <strong>"Começar grátis"</strong>. Ao tocar, a tela de pagamento do Google Play abre automaticamente. Você tem 7 dias gratuitos antes de ser cobrado R$ 9,90/mês. Cancele quando quiser sem custo.</p>
     </div>
 
     <div class="card" style="margin-bottom:12px">
@@ -1034,9 +1072,9 @@
 
 </div>
 <footer>
-  <p>Meu Bolso — Versão Beta | Desenvolvido com ❤️</p>
+  <p>Meu Bolso v1.1.7 | Desenvolvido com ❤️</p>
   <p><a href="https://guileguto.github.io/meubolso-privacy/">Política de Privacidade</a></p>
-  <p style="margin-top:16px; font-size:12px; color:#484F58">Este app está em desenvolvimento ativo. Funcionalidades podem mudar nas próximas versões.</p>
+  <p style="margin-top:16px; font-size:12px; color:#484F58">Disponível na Google Play Store. Assinatura Premium: R$ 9,90/mês com 7 dias grátis.</p>
 </footer>
 </body>
 </html>
