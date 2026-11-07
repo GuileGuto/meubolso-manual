@@ -26,9 +26,6 @@
   .card-green { border-left: 4px solid #43A047; }
   .card-orange { border-left: 4px solid #FB8C00; }
   .card-red { border-left: 4px solid #EF5350; }
-  .card-purple { border-left: 4px solid #7B1FA2; }
-  .card-teal { border-left: 4px solid #00897B; }
-  .card-gold { border-left: 4px solid #FFB300; background: #1C1A0F; border-color: #30363D; border-left-color: #FFB300; }
   .step { display: flex; gap: 16px; margin-bottom: 20px; align-items: flex-start; }
   .step-num { background: #1976D2; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
   .step-content h4 { font-size: 15px; font-weight: 600; color: #E6EDF3; margin-bottom: 4px; }
@@ -38,9 +35,6 @@
   .tip p { margin: 0; font-size: 14px; color: #8B949E; }
   .warning { background: #1C2128; border: 1px solid #FB8C00; border-radius: 8px; padding: 14px 18px; margin: 16px 0; display: flex; gap: 12px; align-items: flex-start; }
   .warning p { margin: 0; font-size: 14px; color: #8B949E; }
-  .badge-new { background: #1976D2; color: white; font-size: 11px; padding: 1px 8px; border-radius: 10px; margin-left: 6px; vertical-align: middle; }
-  .badge-premium { background: #2A1F00; color: #FFB300; font-size: 11px; padding: 2px 10px; border-radius: 10px; margin-left: 6px; vertical-align: middle; border: 1px solid #FFB30040; font-weight: 700; }
-  .badge-free { background: #0A2010; color: #43A047; font-size: 11px; padding: 2px 10px; border-radius: 10px; margin-left: 6px; vertical-align: middle; border: 1px solid #43A04740; font-weight: 700; }
   .badge-blue { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; margin-left: 8px; background: #1565C020; color: #1976D2; border: 1px solid #1976D220; }
   .swipe-demo { display: flex; gap: 8px; margin: 16px 0; }
   .swipe-card { flex: 1; border-radius: 10px; padding: 14px; text-align: center; }
@@ -64,15 +58,12 @@
   .goal-bar-ok { background: #43A047; }
   .goal-bar-warn { background: #FB8C00; }
   .goal-bar-over { background: #EF5350; }
-  .tools-section-label { font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: #8B949E; margin: 0 0 10px; padding: 0; }
   .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
   .tool-item { background: #1C2128; border: 1px solid #30363D; border-radius: 10px; padding: 14px 16px; display: flex; align-items: center; gap: 12px; }
-  .tool-item.premium { border-color: #FFB30030; background: #1C1A0F; }
   .tool-icon { font-size: 22px; flex-shrink: 0; }
   .tool-info { flex: 1; min-width: 0; }
   .tool-name { font-size: 14px; font-weight: 600; color: #E6EDF3; }
   .tool-desc { font-size: 12px; color: #8B949E; margin: 0; }
-  .tool-lock { font-size: 14px; margin-left: auto; flex-shrink: 0; }
   table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
   th { background: #1C2128; color: #E6EDF3; padding: 10px 14px; text-align: left; border-bottom: 1px solid #30363D; }
   td { padding: 10px 14px; border-bottom: 1px solid #21262D; color: #8B949E; }
@@ -100,16 +91,12 @@
   <a href="#inicio">Início</a>
   <a href="#tela-principal">Tela Principal</a>
   <a href="#ferramentas">Ferramentas</a>
-  <a href="#premium">Premium</a>
   <a href="#credito">Cartão de Crédito</a>
   <a href="#transacoes">Transações</a>
-  <a href="#comprovantes">Comprovantes</a>
   <a href="#fixos">Gastos Fixos</a>
   <a href="#metas">Metas</a>
   <a href="#viagens">Viagens</a>
   <a href="#patrimonio">Patrimônio</a>
-  <a href="#chat">Assistente IA</a>
-  <a href="#insights">AI Insights</a>
   <a href="#padroes">Padrões</a>
   <a href="#periodos">Períodos</a>
   <a href="#resumo">Resumo</a>
@@ -125,7 +112,7 @@
   <!-- INÍCIO -->
   <section id="inicio">
     <h2><span class="icon">🚀</span> Primeiros passos</h2>
-    <p>O <strong>Meu Bolso</strong> detecta automaticamente seus gastos lendo as notificações dos aplicativos bancários — sem precisar digitar nada. A IA analisa cada notificação e categoriza o gasto automaticamente.</p>
+    <p>O <strong>Meu Bolso</strong> detecta automaticamente seus gastos lendo as notificações dos aplicativos bancários — sem precisar digitar nada. O app interpreta cada notificação e categoriza o gasto automaticamente, direto no seu aparelho.</p>
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
@@ -136,8 +123,8 @@
     <div class="step">
       <div class="step-num">2</div>
       <div class="step-content">
-        <h4>Configure o orçamento e estado</h4>
-        <p>Vá em <strong>Configurações ⚙️ → Financeiro</strong>. Defina o orçamento mensal e selecione seu estado — usado para estimativa de impostos.</p>
+        <h4>Configure o orçamento do período</h4>
+        <p>Vá em <strong>Configurações ⚙️ → Financeiro</strong>. Informe o orçamento do período.</p>
       </div>
     </div>
     <div class="step">
@@ -151,7 +138,7 @@
       <div class="step-num">4</div>
       <div class="step-content">
         <h4>Use normalmente seu banco</h4>
-        <p>Quando receber uma notificação de compra, débito ou Pix, o Meu Bolso registra automaticamente e categoriza com IA.</p>
+        <p>Quando receber uma notificação de compra, débito ou Pix, o Meu Bolso registra automaticamente e categoriza o gasto.</p>
       </div>
     </div>
     <div class="tip">
@@ -220,20 +207,15 @@
       <p style="margin-top:8px;margin-bottom:0">Ao confirmar, a transação é renomeada para o nome do gasto fixo automaticamente.</p>
     </div>
 
-    <h3>Card de AI Insights</h3>
-    <div class="card card-teal">
-      <p>Quando disponível, um card de análise inteligente aparece logo acima das transações com observações sobre seus padrões de gasto — como queda em uma categoria ou comportamento fora do comum. Toque no card para ver a análise completa. Veja a seção <a href="#insights" style="color:#1976D2">AI Insights</a> para configurar a frequência.</p>
-    </div>
-
     <h3>Botões de navegação</h3>
     <div class="card">
       <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
-        <li><strong>Histórico</strong> — todos os meses anteriores (gratuito)</li>
-        <li><strong>Fechar</strong> — encerra o mês e inicia novo período</li>
-        <li><strong>Ver resumo</strong> — resumo visual do período atual (gratuito)</li>
-        <li><strong>📊</strong> — tela de Padrões financeiros (gratuito)</li>
-        <li><strong>💬</strong> — Assistente financeiro IA (premium)</li>
-        <li><strong>🔧</strong> — Ferramentas — abre o painel com recursos gratuitos e premium</li>
+        <li><strong>Histórico</strong> — todos os meses anteriores</li>
+        <li><strong>Fechar mês</strong> — encerra o mês e inicia novo período</li>
+        <li><strong>Ver resumo</strong> — resumo visual do período atual</li>
+        <li><strong>▦</strong> — Ferramentas: abre o painel com Padrões, Simulador, Notificações, Metas, Viagens, Compras, Parcelamentos e Patrimônio</li>
+        <li><strong>?</strong> — Ajuda: abre este manual</li>
+        <li><strong>⚙️</strong> — Configurações</li>
       </ul>
     </div>
 
@@ -243,7 +225,6 @@
         <li><strong>↓ Gasto</strong> — registra uma saída com valor, local, categoria e data</li>
         <li><strong>↑ Entrada</strong> — registra uma receita</li>
         <li><strong>📅 Fixos</strong> — cadastra um gasto fixo recorrente</li>
-        <li><strong>📷 Comprovante</strong> — escaneia via câmera, galeria ou PDF</li>
       </ul>
     </div>
 
@@ -260,16 +241,15 @@
 
   <!-- FERRAMENTAS -->
   <section id="ferramentas">
-    <h2><span class="icon">🔧</span> Ferramentas</h2>
-    <p>Toque no botão <strong>🔧</strong> na tela principal para abrir o painel de ferramentas. Os recursos estão divididos em duas categorias: <strong>Gratuito</strong> (disponível para todos) e <strong>Premium</strong> (requer assinatura).</p>
+    <h2><span class="icon">▦</span> Ferramentas</h2>
+    <p>Toque no botão <strong>▦</strong> (ícone de grade) no topo da tela principal para abrir o painel de ferramentas. Todos os recursos estão disponíveis, sem restrições.</p>
 
-    <h3>✅ Gratuito — disponível para todos</h3>
     <div class="tools-grid">
       <div class="tool-item">
         <div class="tool-icon">📊</div>
         <div class="tool-info">
           <div class="tool-name">Padrões</div>
-          <p class="tool-desc">Análises e previsões locais</p>
+          <p class="tool-desc">Análises e previsões calculadas no aparelho</p>
         </div>
       </div>
       <div class="tool-item">
@@ -283,100 +263,44 @@
         <div class="tool-icon">🔔</div>
         <div class="tool-info">
           <div class="tool-name">Notificações</div>
-          <p class="tool-desc">Lembretes, análises e alertas</p>
+          <p class="tool-desc">Lembretes, resumos e alertas</p>
         </div>
       </div>
-    </div>
-
-    <h3>🔒 Premium — recursos avançados</h3>
-    <div class="tools-grid">
-      <div class="tool-item premium">
-        <div class="tool-icon">💬</div>
-        <div class="tool-info">
-          <div class="tool-name">Chat IA</div>
-          <p class="tool-desc">Assistente financeiro inteligente</p>
-        </div>
-        <div class="tool-lock">🔒</div>
-      </div>
-      <div class="tool-item premium">
+      <div class="tool-item">
         <div class="tool-icon">🎯</div>
         <div class="tool-info">
           <div class="tool-name">Metas e alertas</div>
           <p class="tool-desc">Limites por categoria</p>
         </div>
-        <div class="tool-lock">🔒</div>
       </div>
-      <div class="tool-item premium">
+      <div class="tool-item">
         <div class="tool-icon">✈️</div>
         <div class="tool-info">
           <div class="tool-name">Viagens</div>
           <p class="tool-desc">Gastos por viagem</p>
         </div>
-        <div class="tool-lock">🔒</div>
       </div>
-      <div class="tool-item premium">
+      <div class="tool-item">
         <div class="tool-icon">🛒</div>
         <div class="tool-info">
           <div class="tool-name">Compras</div>
-          <p class="tool-desc">Lista de compras inteligente</p>
+          <p class="tool-desc">Listas de compras e histórico de preços</p>
         </div>
-        <div class="tool-lock">🔒</div>
       </div>
-      <div class="tool-item premium">
+      <div class="tool-item">
         <div class="tool-icon">📆</div>
         <div class="tool-info">
           <div class="tool-name">Parcelamentos</div>
           <p class="tool-desc">Controle de parcelas</p>
         </div>
-        <div class="tool-lock">🔒</div>
       </div>
-      <div class="tool-item premium">
+      <div class="tool-item">
         <div class="tool-icon">🏦</div>
         <div class="tool-info">
           <div class="tool-name">Patrimônio</div>
           <p class="tool-desc">Bens e ativos</p>
         </div>
-        <div class="tool-lock">🔒</div>
       </div>
-    </div>
-
-    <div class="tip">
-      <span class="tip-icon">💡</span>
-      <p>Ao tentar acessar um recurso premium sem assinatura, o app exibe uma mensagem explicando o que está incluso no plano Premium. O <strong>Ver resumo</strong> e o <strong>Histórico</strong> na tela principal também são gratuitos.</p>
-    </div>
-  </section>
-
-  <!-- PLANO PREMIUM -->
-  <section id="premium">
-    <h2><span class="icon">⭐</span> Plano Premium</h2>
-    <p>O Meu Bolso oferece um plano gratuito robusto e um plano Premium com recursos avançados de análise, organização e inteligência financeira.</p>
-
-    <h3>O que está incluso no Premium</h3>
-    <div class="card card-gold">
-      <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2.2;">
-        <li>💬 <strong>Chat IA personalizado</strong> — assistente financeiro com contexto completo dos seus dados</li>
-        <li>🎯 <strong>Metas e alertas</strong> — limites por categoria com notificações inteligentes</li>
-        <li>✈️ <strong>Viagens</strong> — agrupe gastos por viagem e veja o total separado</li>
-        <li>🛒 <strong>Compras</strong> — lista de compras integrada ao controle financeiro</li>
-        <li>📆 <strong>Parcelamentos</strong> — controle e projeção de parcelas futuras</li>
-        <li>🏦 <strong>Patrimônio</strong> — cadastro de bens, ativos e consulta FIPE</li>
-      </ul>
-    </div>
-
-    <h3>Recursos sempre gratuitos</h3>
-    <div class="card card-green">
-      <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2.2;">
-        <li>📊 <strong>Padrões financeiros</strong> — análises e previsões calculadas localmente</li>
-        <li>🧮 <strong>Simulador</strong> — simula cenários de gasto para o restante do mês</li>
-        <li>📈 <strong>Ver resumo</strong> — gráficos e totais do período atual</li>
-        <li>🗂 <strong>Histórico</strong> — todos os meses fechados</li>
-        <li>Detecção automática de gastos por notificação</li>
-        <li>Leitura de comprovantes, gastos fixos, cartão de crédito e backup</li>
-      </ul>
-    </div>
-
-    <div class="card card-gold">
-      <p style="margin:0;font-size:15px"><strong>⭐ Meu Bolso Premium</strong> — <strong style="color:#FFB300">R$ 9,90/mês</strong> com <strong>7 dias grátis</strong>. Assine pela própria Play Store — cancele quando quiser. Nenhuma cobrança durante o período de teste.</p>
     </div>
   </section>
 
@@ -433,7 +357,7 @@
     <h2><span class="icon">📋</span> Transações</h2>
 
     <h3>Detecção automática</h3>
-    <p>Quando você recebe uma notificação bancária, o app analisa o conteúdo com IA (Google Gemini via servidor centralizado) ou, sem internet, por análise local. O gasto é registrado com valor, estabelecimento, categoria e tipo de pagamento.</p>
+    <p>Quando você recebe uma notificação bancária, o app interpreta o texto direto no seu aparelho — nada é enviado para a internet. O gasto é registrado com valor, estabelecimento e categoria. Quando a notificação informa o tipo de pagamento (como Pix), ele também é registrado; quando não informa, o app pergunta se foi débito ou crédito.</p>
 
     <h3>Ao tocar na notificação</h3>
     <div class="card card-blue">
@@ -488,36 +412,6 @@
     </table>
   </section>
 
-  <!-- COMPROVANTES -->
-  <section id="comprovantes">
-    <h2><span class="icon">📷</span> Leitura de Comprovantes</h2>
-    <p>Fotografe ou selecione um comprovante e o app extrai automaticamente o valor, data, estabelecimento e categoria usando IA.</p>
-    <div class="step">
-      <div class="step-num">1</div>
-      <div class="step-content">
-        <h4>Toque em "📷 Comprovante"</h4>
-        <p>Na seção de adição manual. O app pedirá permissão de câmera na primeira vez.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <div class="step-content">
-        <h4>Escolha a origem</h4>
-        <p><strong>📷 Tirar foto</strong> — câmera para comprovantes físicos.<br><strong>🖼 Galeria</strong> — print ou screenshot salvo.<br><strong>📄 PDF</strong> — nota fiscal ou comprovante bancário.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <div class="step-content">
-        <h4>Confirme o registro</h4>
-        <p>O app mostra o que foi extraído para você conferir antes de registrar.</p>
-      </div>
-    </div>
-    <div class="card card-blue">
-      <p><strong>Fila offline:</strong> sem internet, o comprovante é salvo localmente e processado quando a conexão voltar.</p>
-    </div>
-  </section>
-
   <!-- GASTOS FIXOS -->
   <section id="fixos">
     <h2><span class="icon">🔄</span> Gastos Fixos</h2>
@@ -547,14 +441,14 @@
 
   <!-- METAS DE CATEGORIA -->
   <section id="metas">
-    <h2><span class="icon">🎯</span> Metas e Alertas <span class="badge-premium">PREMIUM</span></h2>
+    <h2><span class="icon">🎯</span> Metas e Alertas</h2>
     <p>Defina um limite de gasto por categoria. O app avisa quando você está se aproximando ou ultrapassando o limite — inclusive na hora exata em que um novo gasto é registrado.</p>
 
     <h3>Como criar uma meta</h3>
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <h4>Ferramentas 🔧 → Metas</h4>
+        <h4>Ferramentas ▦ → Metas</h4>
         <p>Toque no botão + para criar uma nova meta.</p>
       </div>
     </div>
@@ -607,14 +501,14 @@
 
   <!-- VIAGENS -->
   <section id="viagens">
-    <h2><span class="icon">✈️</span> Viagens <span class="badge-premium">PREMIUM</span></h2>
+    <h2><span class="icon">✈️</span> Viagens</h2>
     <p>Agrupe gastos de uma viagem para ver exatamente quanto você gastou no total — separado dos seus gastos do cotidiano.</p>
 
     <h3>Criar uma viagem</h3>
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <h4>Ferramentas 🔧 → Viagens → +</h4>
+        <h4>Ferramentas ▦ → Viagens → +</h4>
         <p>Informe o nome da viagem (ex: "Viagem para SP"), destino, data de início e, opcionalmente, data de fim e descrição.</p>
       </div>
     </div>
@@ -646,22 +540,18 @@
       </ul>
     </div>
 
-    <h3>Integração com o Assistente IA</h3>
-    <div class="card card-teal">
-      <p>O assistente de chat tem acesso às suas viagens cadastradas. Você pode perguntar diretamente: <em>"Quanto gastei na viagem para SP?"</em> ou <em>"Quais viagens tenho abertas?"</em></p>
-    </div>
   </section>
 
   <!-- PATRIMÔNIO -->
   <section id="patrimonio">
-    <h2><span class="icon">🏦</span> Patrimônio <span class="badge-premium">PREMIUM</span></h2>
+    <h2><span class="icon">🏦</span> Patrimônio</h2>
     <p>Registre e acompanhe seus bens e ativos — imóveis, veículos, investimentos e outros patrimônios. Tenha uma visão completa do que você possui além das movimentações mensais.</p>
 
     <h3>Como acessar</h3>
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <h4>Ferramentas 🔧 → Patrimônio</h4>
+        <h4>Ferramentas ▦ → Patrimônio</h4>
         <p>Toque no botão <strong>+</strong> para cadastrar um novo bem.</p>
       </div>
     </div>
@@ -688,69 +578,10 @@
     </div>
   </section>
 
-  <!-- ASSISTENTE IA -->
-  <section id="chat">
-    <h2><span class="icon">💬</span> Assistente Financeiro IA <span class="badge-premium">PREMIUM</span></h2>
-    <p>Toque em <strong>💬</strong> na tela principal. O assistente tem acesso completo aos seus dados do período — todas as transações, categorias, histórico dos últimos meses e viagens cadastradas.</p>
-
-    <h3>O que pode perguntar</h3>
-    <div class="card card-blue">
-      <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
-        <li>Qual foi meu maior gasto este mês?</li>
-        <li>Quanto gastei com delivery?</li>
-        <li>Estou gastando mais que no mês passado?</li>
-        <li>Se continuar assim, fecho o mês no azul?</li>
-        <li>Quais são meus 3 maiores gastos?</li>
-        <li>Tem algum gasto que se repete muito?</li>
-        <li>Quanto gastei na minha viagem para [destino]?</li>
-        <li>Quais viagens tenho em andamento?</li>
-      </ul>
-    </div>
-
-    <h3>Histórico de conversa</h3>
-    <div class="card">
-      <p>O chat salva as últimas 10 mensagens automaticamente. Ao reabrir, a conversa continua de onde parou. Para reiniciar, <strong>segure o botão de voltar ←</strong>.</p>
-    </div>
-
-    <h3>Conselho ao fechar período</h3>
-    <div class="card card-green">
-      <p>Ao fechar um mês, o assistente analisa os dados e exibe um parágrafo personalizado com o que foi bem, o que melhorar e uma sugestão prática.</p>
-    </div>
-  </section>
-
-  <!-- AI INSIGHTS -->
-  <section id="insights">
-    <h2><span class="icon">🤖</span> AI Insights <span class="badge-new">Novo</span></h2>
-    <p>Análises periódicas geradas automaticamente com base nas suas transações e histórico. Aparecem como um card na tela principal — sem precisar perguntar nada.</p>
-
-    <h3>Como funciona</h3>
-    <div class="card card-teal">
-      <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
-        <li>O app analisa suas transações recentes em segundo plano</li>
-        <li>Um card aparece na tela principal com um resumo de 1–2 linhas</li>
-        <li>Toque no card para ver a <strong>análise completa</strong> em um painel deslizante</li>
-        <li>A análise cobre tendências, variações por categoria, comportamentos detectados e sugestões práticas</li>
-      </ul>
-    </div>
-
-    <h3>Configurar frequência</h3>
-    <div class="card">
-      <p>Em <strong>Configurações → AI Insights</strong>:</p>
-      <ul style="margin: 8px 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
-        <li><strong>Ativar/Desativar</strong> — toggle para ligar ou desligar os insights</li>
-        <li><strong>Frequência</strong> — a cada 3, 7 ou 14 dias</li>
-      </ul>
-    </div>
-    <div class="tip">
-      <span class="tip-icon">💡</span>
-      <p>O insight é gerado automaticamente no período configurado. Se quiser uma análise agora, basta perguntar ao <a href="#chat" style="color:#1976D2">Assistente IA</a> diretamente.</p>
-    </div>
-  </section>
-
   <!-- PADRÕES -->
   <section id="padroes">
-    <h2><span class="icon">📈</span> Tela de Padrões <span class="badge-free">GRATUITO</span></h2>
-    <p>Toque em <strong>📊</strong> na tela principal. Análises calculadas localmente — sem internet.</p>
+    <h2><span class="icon">📈</span> Tela de Padrões</h2>
+    <p>Acesse em <strong>Ferramentas ▦ → Padrões</strong>. Todas as análises são calculadas localmente no aparelho.</p>
 
     <h3>Previsão até o fim do mês</h3>
     <div class="card card-blue">
@@ -777,11 +608,6 @@
       </ul>
     </div>
 
-    <h3>Estimativa de impostos</h3>
-    <div class="card card-purple">
-      <p>Calcula o ICMS e ISS estimados embutidos nos seus gastos do mês, por categoria, usando as alíquotas do seu estado. Configure o estado em <strong>Configurações → Financeiro</strong>.</p>
-      <p style="margin-bottom:0;font-size:13px;color:#666">⚠️ São estimativas baseadas em alíquotas médias. Valores reais podem variar.</p>
-    </div>
   </section>
 
   <!-- PERÍODOS -->
@@ -792,8 +618,8 @@
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <h4>Toque em "Fechar"</h4>
-        <p>Na tela principal. O assistente IA analisa o mês e exibe um conselho personalizado.</p>
+        <h4>Toque em "Fechar mês"</h4>
+        <p>No topo da tela principal.</p>
       </div>
     </div>
     <div class="step">
@@ -836,7 +662,7 @@
 
   <!-- RESUMO -->
   <section id="resumo">
-    <h2><span class="icon">📊</span> Tela de Resumo <span class="badge-free">GRATUITO</span></h2>
+    <h2><span class="icon">📊</span> Tela de Resumo</h2>
     <p>Toque em <strong>"Ver resumo"</strong> no card azul.</p>
     <div class="card card-blue">
       <ul style="margin: 0 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2.2;">
@@ -847,12 +673,16 @@
         <li><strong>Gráfico de barras</strong> — top categorias</li>
       </ul>
     </div>
+    <div class="tip">
+      <span class="tip-icon">💡</span>
+      <p>Os gráficos precisam de conexão com a internet para carregar (apenas a biblioteca de gráficos é baixada — seus dados não saem do aparelho). Sem conexão, os números continuam aparecendo.</p>
+    </div>
   </section>
 
   <!-- HISTÓRICO -->
   <section id="historico">
-    <h2><span class="icon">🗂</span> Histórico de Períodos <span class="badge-free">GRATUITO</span></h2>
-    <p>Toque em <strong>"Histórico"</strong> na tela principal. Lista todos os meses fechados com total gasto, % do orçamento e gráfico de evolução.</p>
+    <h2><span class="icon">🗂</span> Histórico de Períodos</h2>
+    <p>Toque em <strong>"Histórico"</strong> na tela principal. Lista todos os meses fechados com total gasto, % do orçamento e gráfico de evolução (o gráfico precisa de conexão com a internet para carregar).</p>
     <div class="warning">
       <span style="font-size:18px">⚠️</span>
       <p>Ao excluir um período, todos os gastos registrados nele são removidos permanentemente.</p>
@@ -871,14 +701,20 @@
       <strong>Escuro</strong> — fundo escuro independente do sistema.<br>
       <strong>Claro</strong> — fundo claro independente do sistema.</p>
     </div>
+
     <h3>💰 Financeiro</h3>
     <div class="card">
-      <p><strong>Orçamento mensal</strong> — valor de referência para o mês.<br><strong>Estado</strong> — selecione seu estado para cálculo de estimativas de ICMS e ISS.</p>
+      <p><strong>Orçamento do período</strong> — valor de referência para o período atual. Você também define o orçamento do próximo período ao fechar o mês.</p>
     </div>
 
     <h3>💳 Cartões de Crédito</h3>
     <div class="card card-blue">
       <p>Cadastre seus cartões com nome, dia de fechamento e dia de vencimento. O app calcula automaticamente em qual fatura cada compra no crédito se encaixa.<br><br>Exemplo: Nubank fecha dia 3, vence dia 26.</p>
+    </div>
+
+    <h3>🏦 Contas Bancárias</h3>
+    <div class="card card-blue">
+      <p>Cadastre suas contas com nome, saldo inicial e cor. Se informar também o aplicativo do banco (pelo nome do pacote, ex.: <code>com.nu.production</code> para o Nubank), os gastos detectados nas notificações desse banco são associados à conta automaticamente. Os saldos aparecem no card <strong>Minhas Contas</strong> da tela principal.</p>
     </div>
 
     <h3>🔔 Notificações</h3>
@@ -887,27 +723,26 @@
     </div>
     <div class="tip">
       <span class="tip-icon">💡</span>
-      <p>As configurações completas de notificações (vencimento de fixos, lembrete diário, análise IA e resumo semanal) ficam em <strong>Ferramentas 🔧 → Notificações</strong>.</p>
+      <p>As configurações completas de notificações (vencimento de fixos, lembrete diário e resumo semanal) ficam em <strong>Ferramentas ▦ → Notificações</strong>.</p>
     </div>
 
-    <h3>🤖 AI Insights</h3>
-    <div class="card card-teal">
-      <p>Acesse em <strong>Ferramentas 🔧 → Notificações → Análise automática dos gastos</strong>.<br><strong>Ativar Insights</strong> — liga ou desliga a análise periódica automática.<br><strong>Frequência</strong> — Semanal, Quinzenal ou Mensal.</p>
-    </div>
-
-    <h3>🔒 Privacidade</h3>
+    <h3>🔒 Privacidade e segurança</h3>
     <div class="card">
-      <p><strong>Entrada segura</strong> — biometria, PIN ou padrão ao abrir o app.</p>
+      <p><strong>Entrada segura</strong> — biometria, PIN ou padrão ao abrir o app.<br>
+      <strong>Otimização de bateria</strong> — ajuda a manter a detecção de gastos funcionando em segundo plano.<br>
+      <strong>Apagar todos os dados</strong> — remove transações, períodos, gastos fixos e cartões de crédito (irreversível). Contas bancárias, metas, viagens, listas de compras e bens não são apagados por esta opção; para removê-los, limpe os dados do app nas configurações do Android ou desinstale-o.</p>
     </div>
 
-    <h3>🗂 Dados</h3>
+    <h3>🗂 Dados e backup</h3>
     <div class="card">
-      <p><strong>Exportar backup</strong> — gera arquivo JSON com todos os dados.<br><strong>Importar backup</strong> — restaura dados de um backup anterior.<br><strong>Apagar todos os dados</strong> — remove tudo permanentemente (irreversível).</p>
+      <p><strong>Backup automático</strong> — salva cópias do seu histórico no aparelho (veja <a href="#backup" style="color:#1976D2">Backup e Restauração</a>).<br>
+      <strong>Exportar dados</strong> — gera um arquivo JSON para você salvar ou compartilhar.<br>
+      <strong>Importar dados</strong> — restaura dados de um backup anterior.</p>
     </div>
 
-    <h3>ℹ️ Sobre o servidor</h3>
-    <div class="card card-green">
-      <p>O Meu Bolso usa um servidor centralizado para análise de IA — você não precisa configurar nenhuma chave de API. As notificações bancárias são enviadas ao servidor apenas para identificar valor, estabelecimento e categoria — sem armazenamento.</p>
+    <h3>ℹ️ Sobre</h3>
+    <div class="card">
+      <p><strong>Política de privacidade</strong> — abre a política de privacidade do aplicativo.</p>
     </div>
   </section>
 
@@ -917,8 +752,8 @@
     <div class="step">
       <div class="step-num">1</div>
       <div class="step-content">
-        <h4>Configurações → Dados → Exportar backup</h4>
-        <p>Gera o arquivo <code>meubolso_backup_YYYYMMDD_HHmm.json</code> com todos os dados.</p>
+        <h4>Configurações → Dados e backup → Exportar dados</h4>
+        <p>Gera o arquivo <code>meubolso_backup_YYYYMMDD_HHmm.json</code> com suas transações, períodos e gastos fixos.</p>
       </div>
     </div>
     <div class="step">
@@ -936,12 +771,23 @@
       <span class="tip-icon">💡</span>
       <p>Faça backup regularmente — especialmente antes de trocar de celular.</p>
     </div>
+
+    <h3>O que o backup inclui</h3>
+    <div class="card">
+      <p>O arquivo contém suas <strong>transações, períodos e gastos fixos</strong>. Cartões de crédito, contas bancárias, metas, viagens, listas de compras e bens <strong>não</strong> fazem parte do backup. O texto original das notificações bancárias também não é incluído.</p>
+    </div>
+
+    <h3>Backup automático</h3>
+    <div class="card card-blue">
+      <p>Em <strong>Configurações → Dados e backup → Backup automático</strong> (desativado por padrão), escolha a frequência — Diário, Semanal, Quinzenal ou Mensal. O app salva o arquivo na pasta <code>Downloads/Meu Bolso</code> e mantém os 4 backups mais recentes. A tela mostra a data do último backup.</p>
+      <p style="margin-bottom:0">Esses arquivos ficam fora do armazenamento privado do app: continuam no aparelho depois de desinstalar e podem ser vistos por você e por apps com acesso aos arquivos. Apague-os quando não precisar mais.</p>
+    </div>
   </section>
 
   <!-- NOTIFICAÇÕES -->
   <section id="notificacoes">
-    <h2><span class="icon">🔔</span> Notificações e Análises</h2>
-    <p>Acesse em <strong>Ferramentas 🔧 → Notificações</strong>. Todas as configurações de alertas e análises automáticas estão reunidas aqui.</p>
+    <h2><span class="icon">🔔</span> Notificações e Resumos</h2>
+    <p>Acesse em <strong>Ferramentas ▦ → Notificações</strong>. Todas as configurações de alertas e resumos estão reunidas aqui.</p>
     <h3>Vencimento de fixos</h3>
     <div class="card card-orange">
       <p>Ative para receber um aviso antes das contas fixas vencerem. Configure com quantos dias de antecedência (1 a 14 dias) o lembrete deve ser enviado.</p>
@@ -949,14 +795,6 @@
     <h3>Lembrete de revisão</h3>
     <div class="card card-blue">
       <p>Receba um lembrete diário para revisar seus gastos. Configure o horário e os dias da semana (ex: seg–sex às 19h).</p>
-    </div>
-    <h3>Análise automática dos gastos</h3>
-    <div class="card card-teal">
-      <p>A IA analisa seus gastos periodicamente e envia um card com insights direto na tela principal. Configure:</p>
-      <ul style="margin: 8px 0 0 20px; color: #8B949E; font-size: 14px; line-height: 2;">
-        <li><strong>Frequência</strong> — Semanal (escolha o dia), Quinzenal ou Mensal</li>
-        <li><strong>Dia da análise semanal</strong> — qual dia da semana receber o insight (quando frequência = semanal)</li>
-      </ul>
     </div>
     <h3>Resumo toda sexta-feira</h3>
     <div class="card card-green">
@@ -970,9 +808,8 @@
     <table>
       <tr><th>Permissão</th><th>Para que serve</th><th>Obrigatória?</th></tr>
       <tr><td>Acesso a notificações</td><td>Ler notificações bancárias</td><td>✅ Sim</td></tr>
-      <tr><td>Câmera</td><td>Fotografar comprovantes</td><td>Opcional</td></tr>
       <tr><td>Notificações do app</td><td>Alertas, metas, vencimento e lembrete diário</td><td>Recomendada</td></tr>
-      <tr><td>Internet</td><td>IA para análise de notificações e comprovantes</td><td>Recomendada</td></tr>
+      <tr><td>Internet</td><td>Carregar os gráficos das telas Resumo e Histórico</td><td>Recomendada</td></tr>
       <tr><td>Iniciar com o sistema</td><td>Reativar monitoramento após reinicialização</td><td>Recomendada</td></tr>
     </table>
 
@@ -1034,10 +871,6 @@
       <p>Ao fechar o período, o app calcula automaticamente o saldo atual de cada conta (saldo inicial + movimentações do mês) e salva esse valor como o novo saldo inicial. Assim, o próximo período começa com os saldos corretos — sem precisar atualizar manualmente.</p>
     </div>
 
-    <div class="card" style="margin-bottom:12px">
-      <h3 style="margin-top:0">Estou testando o app mas o recurso aparece como premium. O que fazer?</h3>
-      <p>Para assinar, tente acessar qualquer recurso Premium — o app exibirá o paywall com o botão <strong>"Começar grátis"</strong>. Ao tocar, a tela de pagamento do Google Play abre automaticamente. Você tem 7 dias gratuitos antes de ser cobrado R$ 9,90/mês. Cancele quando quiser sem custo.</p>
-    </div>
 
     <div class="card" style="margin-bottom:12px">
       <h3 style="margin-top:0">O olho de ocultar valores funciona em todos os cards?</h3>
@@ -1045,36 +878,24 @@
     </div>
 
     <div class="card" style="margin-bottom:12px">
-      <h3 style="margin-top:0">O assistente IA é seguro?</h3>
-      <p>Sim. Os dados são enviados ao servidor do Meu Bolso (não a terceiros) apenas para processar a resposta. Nenhuma informação é armazenada no servidor.</p>
+      <h3 style="margin-top:0">O Meu Bolso envia meus dados para algum servidor?</h3>
+      <p>Não. Toda a leitura das notificações e o armazenamento acontecem no seu aparelho. A única conexão feita pelo app é o download da biblioteca de gráficos ao abrir as telas Resumo e Histórico — nenhum dado financeiro é enviado.</p>
     </div>
 
-    <div class="card" style="margin-bottom:12px">
-      <h3 style="margin-top:0">Como funciona a estimativa de impostos?</h3>
-      <p>Na tela de Padrões, o app calcula o ICMS e ISS estimados embutidos nos seus gastos usando as alíquotas do seu estado. São estimativas — os valores reais podem variar conforme o produto e a situação fiscal.</p>
-    </div>
 
     <div class="card" style="margin-bottom:12px">
       <h3 style="margin-top:0">O app funciona sem internet?</h3>
-      <p>Sim! Detecção básica, adição manual, fixos, metas, viagens, padrões e patrimônio funcionam offline. A internet é usada para IA (análise de notificações, comprovantes e AI Insights) e o assistente de chat.</p>
+      <p>Sim! Detecção de gastos, adição manual, fixos, metas, viagens, padrões e patrimônio funcionam offline. A internet só é necessária para carregar os gráficos das telas Resumo e Histórico.</p>
     </div>
 
-    <div class="card" style="margin-bottom:12px">
-      <h3 style="margin-top:0">Preciso configurar uma API Key?</h3>
-      <p>Não. O Meu Bolso usa um servidor centralizado — você não precisa de nenhuma chave de API. Tudo funciona automaticamente.</p>
-    </div>
 
-    <div class="card">
-      <h3 style="margin-top:0">Como reiniciar o chat com o assistente?</h3>
-      <p>Na tela do chat, <strong>segure o botão de voltar ←</strong> por um momento. A conversa é apagada e começa do zero.</p>
-    </div>
   </section>
 
 </div>
 <footer>
   <p>Meu Bolso v1.1.7 | Desenvolvido com ❤️</p>
   <p><a href="https://guileguto.github.io/meubolso-privacy/">Política de Privacidade</a></p>
-  <p style="margin-top:16px; font-size:12px; color:#484F58">Disponível na Google Play Store. Assinatura Premium: R$ 9,90/mês com 7 dias grátis.</p>
+  <p style="margin-top:16px; font-size:12px; color:#484F58">Disponível na Google Play Store.</p>
 </footer>
 </body>
 </html>
